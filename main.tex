@@ -3,8 +3,8 @@
 
 
 %% --- GLOBAL BASIC LAYOUT ---------------------------------------------------
-\documentclass[dottedtoc]{scrbook}
-%\usepackage[margin=3cm]{geometry} % Managing custom margins
+\documentclass[a4,dottedtoc]{scrbook}
+\usepackage[top=2cm,bottom=3cm,left=3cm,right=3cm]{geometry} % Managing custom margins
 \usepackage{changepage} 
                         % Commands to change the page layout in the middle of a document, and to robustly check for typesetting on odd or even pages
 \usepackage{setspace}   %Needed for \onehalfspacing
@@ -14,7 +14,7 @@
 
 
 %% --- FONTS & ENCODING ------------------------------------------------------
-\usepackage[italian,american]{babel}
+\usepackage[american, italian]{babel}
 \usepackage[utf8]{inputenc}          % Unicode standard UTF-8
 \usepackage[T1]{fontenc}             % Output font encoding
 \usepackage{amsmath,amssymb,amsthm}
@@ -75,7 +75,7 @@
 	pdfkeywords={key1,key2},
 	pdfnewwindow=true,      % links in new PDF window
 	colorlinks=true,        % false: boxed links; true: colored links
-	linkcolor=blue,         % color of internal links
+	linkcolor=black,          % color of internal links
 	citecolor=blue,         % color of links to bibliography
 	filecolor=blue,         % color of file links
 	urlcolor=blue           % color of external links
@@ -85,7 +85,7 @@
 
 %% --- APPENDIX SETUP --------------------------------------------------------
 \usepackage[toc,page]{appendix}
-\renewcommand{\appendixname}{Appendici}
+\renewcommand{\appendixname}{Appendici} % FONT FAMILY!
 \renewcommand{\appendixtocname}{Appendici}
 \renewcommand{\appendixpagename}{Appendici}
 %% ---------------------------------------------------------------------------
@@ -103,8 +103,10 @@
 
 
 %% --- ARS CLASSICA OVERRIDE -------------------------------------------------
-\usepackage[subfig,beramono,eulermath,pdfspacing,listings]{classicthesis}
-\usepackage{arsclassica} % >> SEVERAL PROBLEMS HERE, SEE WARNINGS <<
+%\usepackage[subfig,beramono,eulermath,pdfspacing,listings]{classicthesis}
+%\usepackage{arsclassica} % >> SEVERAL PROBLEMS HERE, SEE WARNINGS <<
+\renewcommand{\sfdefault}{iwona}
+\renewcommand*\sectfont{\sffamily\mdseries\scshape}
 %% ---------------------------------------------------------------------------
 
 
@@ -116,8 +118,10 @@
 \begin{document}
 
 %>FRONTESPIZIO
+\newgeometry{top=0cm,bottom=1cm,left=3cm,right=3cm}
 \input{titlepage.tex}
 \frontmatter
+\restoregeometry
 \input{Capitoli/Dedica}
 
 %>INDICE[AUTOMATIZZATO]
