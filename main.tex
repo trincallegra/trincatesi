@@ -1,30 +1,145 @@
-\documentclass[dottedtoc]{scrbook}
-\usepackage[italian,american]{babel}
-%\usepackage[applemac]{inputenc}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsthm}
-\usepackage{varioref}
-\usepackage[style=philosophy-modern,hyperref,square,natbib]{biblatex}
-\usepackage{chngpage}
-\usepackage{calc}
-\usepackage{listings}
-\usepackage{graphicx}
-\usepackage{subfig}
-\usepackage{multicol}
-\usepackage{makeidx}
-\usepackage{fixltx2e}
-\usepackage{relsize}
-\usepackage{lipsum}
-\usepackage[eulerchapternumbers,subfig,beramono,eulermath,pdfspacing,listings]{classicthesis}
-\usepackage{arsclassica}
+%% STRUCTURED CUSTOMIZATION OF ARSCLASSICA / CLASSIC THESIS TEMPLATE
+%% ---------------------------------------------------------------------------
 
+
+%% --- GLOBAL BASIC LAYOUT ---------------------------------------------------
+\documentclass[dottedtoc]{scrbook}
+%\usepackage[margin=3cm]{geometry} % Managing custom margins
+\usepackage{changepage} 
+                        % Commands to change the page layout in the middle of a document, and to robustly check for typesetting on odd or even pages
+\usepackage{setspace}   %Needed for \onehalfspacing
+\usepackage{calc} 
+                        % To perform arithmetic on the arguments of the LATEX commands \setcounter, \addtocounter, \setlength, and \addtolength [USED SILENTLY!]
+%% ---------------------------------------------------------------------------
+
+
+%% --- FONTS & ENCODING ------------------------------------------------------
+\usepackage[italian,american]{babel}
+\usepackage[utf8]{inputenc}          % Unicode standard UTF-8
+\usepackage[T1]{fontenc}             % Output font encoding
+\usepackage{amsmath,amssymb,amsthm}
+%% ---------------------------------------------------------------------------
+
+
+%% --- REFERENCES & BIBLIOGRAPHY ---------------------------------------------
+\usepackage{varioref} % \vref and \vpageref ('decorated' references...)
+\PassOptionsToPackage{
+        natbib=true,
+        square=true, % ? -> it was already in the template
+        style=philosophy-modern,
+        citestyle=authoryear,
+        sorting=nyvt, % nyvt
+        maxnames=3,
+        minnames=1,
+        hyperref=true,
+        backend=biber,
+        parentracker=true,
+        url=false,
+        doi=false,
+        isbn=false,
+        eprint=false,
+        backref=true,
+            }   {biblatex}
+\usepackage{biblatex}
+\addbibresource{Bibliografia/articoli.bib}
+\addbibresource{Bibliografia/testi.bib}
+\addbibresource{Bibliografia/web.bib}
+\usepackage[autostyle]{csquotes}          
+                                    % Ensures that quoted texts are typeset according to the rules of your main language. (>babel)
+%% ---------------------------------------------------------------------------
+
+
+%% --- FIGURE MAGIC ----------------------------------------------------------
+\usepackage{subfig}
+\usepackage{caption}
+\usepackage{graphicx}
+% MAYBE ADD XCOLOR AND DEFINE THE UNITS OFFICIAL PANTONE
+%% ---------------------------------------------------------------------------
+
+
+%% --- HYPERLINKS & METADATA -------------------------------------------------
+\usepackage{hyperref}
+\hypersetup
+{
+	bookmarks=true,         % show bookmarks bar
+	unicode=true,           % non-Latin characters in Acrobat’s bookmarks
+	pdftoolbar=false,       % show Acrobat’s toolbar?
+	pdfmenubar=true,        % show Acrobat’s menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdfauthor={Anaïs Trinca},
+	pdftitle={TITOLO DEFINITIVO},
+	pdfsubject={SOTTOTITOLO DEFINITIVO},
+	pdfcreator={Overleaf},  % platform generating the pdf source
+	pdfproducer={PdfLaTeX}, % app producing the pdf build
+	pdfkeywords={key1,key2},
+	pdfnewwindow=true,      % links in new PDF window
+	colorlinks=true,        % false: boxed links; true: colored links
+	linkcolor=blue,         % color of internal links
+	citecolor=blue,         % color of links to bibliography
+	filecolor=blue,         % color of file links
+	urlcolor=blue           % color of external links
+}
+%% ---------------------------------------------------------------------------
+
+
+%% --- APPENDIX SETUP --------------------------------------------------------
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixname}{Appendici}
+\renewcommand{\appendixtocname}{Appendici}
+\renewcommand{\appendixpagename}{Appendici}
+%% ---------------------------------------------------------------------------
+
+
+%% --- OTHER STUFF -----------------------------------------------------------
+\usepackage{listings}
+\usepackage{multicol}
+\usepackage{makeidx}                 %Standard package for creating indexes
+\usepackage{relsize}                 %\larger, \smaller, \textlarger, etc.
 \usepackage{lipsum}
+\usepackage[shortlabels]{enumitem}  % Enumerate with letters
+\usepackage{epigraph}                
+%% ---------------------------------------------------------------------------
+
+
+%% --- ARS CLASSICA OVERRIDE -------------------------------------------------
+\usepackage[subfig,beramono,eulermath,pdfspacing,listings]{classicthesis}
+\usepackage{arsclassica} % >> SEVERAL PROBLEMS HERE, SEE WARNINGS <<
+%% ---------------------------------------------------------------------------
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NON METTERE MANO A NULLA SOPRA QUESTA FASCIA (SE NON AUTORIZZATI) :P      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \begin{document}
+
+%>FRONTESPIZIO
 \input{titlepage.tex}
 \frontmatter
+\input{Capitoli/Dedica}
+
+%>INDICE[AUTOMATIZZATO]
 \tableofcontents
+
+%>GLOBAL-SETUP
 \mainmatter
-\input{Capitoli/Ch1.tex}
+\onehalfspacing % layout "arieggiato"
+
+%>CAPITOLI
+\input{Capitoli/Introduzione.tex}
+
+%>RINGRAZIAMENTI
+\input{Capitoli/Ringraziamenti.tex}
+
+%>APPENDICI
+\begin{appendices}
+\input{Appendici/Sedazioni_Profonde.tex}
+\end{appendices}
+
+%>BIBLIOGRAFIA
+\printbibliography[heading=bibintoc,title={Bibliografia}]
 
 \end{document}
+
