@@ -18,6 +18,7 @@
 \usepackage[utf8]{inputenc}          % Unicode standard UTF-8
 \usepackage[T1]{fontenc}             % Output font encoding
 \usepackage{amsmath,amssymb,amsthm}
+\usepackage{siunitx}
 %% ---------------------------------------------------------------------------
 
 
@@ -100,6 +101,11 @@
 \usepackage{relsize}                 %\larger, \smaller, \textlarger, etc.
 \usepackage{lipsum}
 \usepackage[shortlabels]{enumitem}  % Enumerate with letters
+\setlist[description]{%
+  %topsep=30pt,               % space before start / after end of list
+  %itemsep=5pt,               % space between items
+  font={\sffamily\mdseries\scshape}, % set the label font
+}
 \usepackage{epigraph}                
 %% ---------------------------------------------------------------------------
 
