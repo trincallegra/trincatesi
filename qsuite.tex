@@ -1,38 +1,17 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Required package inclusions                            %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Required package inclusions %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{wasysym} % provides \ocircle and \Box
-\usepackage{forloop}% used for \Qrating and \Qlines
-\usepackage{ifthen}% used for \Qitem and \QItem
+\usepackage{forloop} % used for \Qrating and \Qlines
+\usepackage{ifthen}  % used for \Qitem and \QItem
 % Color or XColor  required for background colors...
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Beginning of questionnaire command definitions %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%
-%% © 2010, 2012 by Sven Hartenstein
-%% mail@svenhartenstein.de
-%% http://www.svenhartenstein.de
-%%
-%% © 2022 G. Bellomia [customization]
-%%
-%% Please be warned that this is NOT a full-featured framework for
-%% creating (all sorts of) questionnaires. Rather, it is a small
-%% collection of LaTeX commands that I found useful when creating a
-%% questionnaire. Feel free to copy and adjust any parts you like.
-%% Most probably, you will want to change the commands, so that they
-%% fit your taste.
-%%
-%% Also note that I am not a LaTeX expert! Things can very likely be
-%% done much more elegant than I was able to. If you have suggestions
-%% about what can be improved please send me an email. I intend to
-%% add good tipps to my website and to name contributers of course.
-%%
-%% 10/2012: Thanks to karathan for the suggestion to put \noindent
-%% before \rule!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% \Qq = Questionaire question. Oh, this is just too simple. It helps
+%% \Qq = Questionnaire question. Oh, this is just too simple. It helps
 %% making it easy to globally change the appearance of questions.
 \newcommand{\Qq}[1]{\textbf{#1}}
 
@@ -56,7 +35,7 @@
 
 %% \Qlist = This is an environment very similar to itemize but with
 %% \QO in front of each list item. Useful for classical multiple
-%% choice. Change leftmargin and topsep accourding to your taste.
+%% choice. Change leftmargin and topsep according to your taste.
 \newenvironment{Qlist}{%
 \renewcommand{\labelitemi}{\QO}
 \begin{itemize}[leftmargin=1.5em,topsep=-.5em]
@@ -107,8 +86,30 @@
 }
 }
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% End of questionnaire command definitions %%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% COPYRIGHT
+%% © 2010, 2012 by Sven Hartenstein
+%% mail@svenhartenstein.de
+%% http://www.svenhartenstein.de
+%% © 2022 G. Bellomia [customization]
+%% gabriele.bellomia@sissa.it
+%% https://github.com/bellomia
+%%
+%% Please be warned that this is NOT a full-featured framework for
+%% creating (all sorts of) questionnaires. Rather, it is a small
+%% collection of LaTeX commands that I found useful when creating a
+%% questionnaire. Feel free to copy and adjust any parts you like.
+%% Most probably, you will want to change the commands, so that they
+%% fit your taste.
+%%
+%% Also note that I am not a LaTeX expert! Things can very likely be
+%% done much more elegant than I was able to. If you have suggestions
+%% about what can be improved please send me an email. I intend to
+%% add good tips to my website and to name contributors of course.
+%%
+%% 10/2012: Thanks to @karathan for the suggestion to put \noindent
+%% before \rule!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%LICENSE

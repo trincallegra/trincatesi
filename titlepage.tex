@@ -1,60 +1,69 @@
-%------------------------------------------------------------------------------
+%••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 %	TITLE PAGE
-%------------------------------------------------------------------------------
+%••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
-\begin{titlepage} % Suppresses displaying the page number on the title page and the subsequent page counts as page 1
+\begin{titlepage} 
+% Suppresses displaying the page number on the title page
+% > also, the subsequent page counts as page 1 (i)
 \pdfbookmark{Frontespizio}{Frontespizio}
-\changetext{}{}{}{((\paperwidth  - \textwidth) / 2) - \oddsidemargin - \hoffset - 1in}{}
-\null\vfill
+% Set up bookmark in PDF metadata
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+% Defines a new command for horizontal lines, change thickness here
+
+\changetext{}{}{}{((\paperwidth-\textwidth)/2)-\oddsidemargin-\hoffset-1in}{}
+\null\vfill % a pinch of blackmagic
+
+%••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
 \begin{center}
 \large
 \sffamily
-	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for horizontal lines, change thickness here
 	
 	\center % Centre everything on the page
 	
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	%	Logo
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	
 	%\vfill
-	\includegraphics[width=0.33\textwidth]{Figure/logoUniTs_tondo.pdf}\\[0.5cm] % Include a department/university logo - this will require the graphicx package
+	\includegraphics[width=0.33\textwidth]{Figure/logoUniTs_tondo.pdf}\\[0.5cm] 
+	% Include a department/university logo 
+	% > this will require the graphicx package
 	 
-	%--------------------------------------------------------------------------
-	
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	%	Headings
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	
-	\textsc{\LARGE Universit\`a degli Studi di Trieste}\\
+	\textsc{\LARGE \theUniversity}\\
 	\HRule\\[0.5cm] % Main heading such as the name of your university/college
 	
-	\textsc{\Large Dipartimento Universitario Clinico di Scienze Mediche, Chirurgiche e della Salute}\\[0.5cm] % Major heading such as course name
+	\textsc{\Large \theDepartment}\\[0.5cm] % Major heading such as department
 	
-	\textsc{\large Corso di Laurea in Medicina e Chirurgia}\\
-	\textit{Coordinatore: Roberto Luzzati} \\ [0.5cm] % Minor heading such as course title
+	\textsc{\large \theDegree}\\ % Minor heading such as course title
+	\textit{Coordinatore: \theCoordinator} \\ [0.5cm] 
 	
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	%	Title
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	
 	\vfill
 	
-	{\huge\bfseries Valutazione infermieristica sulla qualità del risveglio post sedazione procedurale pediatrica}\\ [0.2cm] % Titolo
+	{\huge\bfseries \theTitle}\\ [0.2cm] % Title of the Thesis
 	
-	{\huge Nursing assessment of the quality of recovery after pediatric procedural sedation}\\ [0.2cm] % Title of your document
+	{\huge \theSubject}\\ [0.2cm] % Subject of the work [or title translation]
 	
 	\vfill\vfill
 	
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	%	Author(s)
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushleft}
 			\large
 			\textit{Laureanda}\\
-			Ana\"is \textsc{Trinca}\\ % Your name
+			\theAuthor\\ % Your name
 			\small{ME0300935}
 		\end{flushleft}
 	\end{minipage}
@@ -62,27 +71,29 @@
 	\begin{minipage}{0.4\textwidth}
 		\begin{flushright}
 			\large
-			\textit{Relatore}\\
-			Prof. Egidio \textsc{Barbi} \\ % Supervisor's name
+			\textit{Relatore}  \\
+			\theFirstSupervisor \\ % Supervisor's name
 			\bigskip
 			\textit{Correlatore}\\ 
-			Dott.ssa Martina \textsc{D'Agostin} \\ % Co-supervisor's name
+			\theSecondSupervisor \\ % Co-supervisor's name
 			%\bigskip
 			%\textit{Coordinatore}\\ 
 			%dott. Roberto \textsc{Luzzati} \\ % Coordinator name
 		\end{flushright}
 	\end{minipage}
 	
-	%------------------------------------------------
-	%	Date
-	%------------------------------------------------
+	%••••••••••••••••••••••••••••••••••••••••••••••••
+	%	Date [ANNO ACCADEMICO]
+	%••••••••••••••••••••••••••••••••••••••••••••••••
 	
 	\vfill\vfill\vfill
 	
-	{\large \textsc{Anno Accademico 2021/2022}}
+	{\large \textsc{\theDate}}
 	
 	\vfill
 	\end{center}
+
+%••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
+
 \end{titlepage}
 
-%------------------------------------------------------------------------------
