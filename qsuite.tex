@@ -2,10 +2,10 @@
 %% Required package inclusions %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{wasysym} % provides \ocircle and \Box
+\usepackage{wasysym} % provides $\ocircle$ and $\Box$
 \usepackage{forloop} % used for \Qrating and \Qlines
 \usepackage{ifthen}  % used for \Qitem and \QItem
-% Color or XColor  required for background colors...
+% Color or XColor required for background colors...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Beginning of questionnaire command definitions %%
@@ -17,7 +17,10 @@
 
 %% \QO = Circle or box to be ticked. Used both by direct call and by
 %% \Qrating and \Qlist.
-\newcommand{\QO}{$\Box$}% or: $\ocircle$
+\fboxsep=1mm \fboxrule=0.1mm
+\newcommand{\QO}{\fcolorbox{black}{xkcdCloudyBlue!10}{\color{xkcdCloudyBlue!10}$\ocircle$}}% or: $\ocircle$
+%\newcommand{\QO}{\colorbox{xkcdCloudyBlue!10}{\color{xkcdCloudyBlue!10}$\ocircle$}}% or: $\ocircle$
+
 
 %% \Qrating = Automatically create a rating scale with NUM steps, like
 %% this: 0--0--0--0--0.
@@ -38,8 +41,8 @@
 %% choice. Change leftmargin and topsep according to your taste.
 \newenvironment{Qlist}{%
 \renewcommand{\labelitemi}{\QO}
-\begin{itemize}[leftmargin=1.5em,topsep=-.5em]
-}{%
+\begin{itemize}[leftmargin=2em]   %[leftmargin=2.57em]%,topsep=-.5em]
+}{%                               ^matches itemize    ^no good
 \end{itemize}
 }
 
