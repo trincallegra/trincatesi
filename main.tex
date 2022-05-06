@@ -56,10 +56,16 @@
 \usepackage{subfig}
 \usepackage{caption}
 \usepackage{graphicx}
-\usepackage{xcolor}
+\usepackage[x11names]{xcolor}
+\usepackage{xkcdcolors}
+\usepackage[breakable]{tcolorbox}
 % MAYBE ADD XCOLOR AND DEFINE THE UNITS OFFICIAL PANTONE
 %% ---------------------------------------------------------------------------
 
+
+% CUSTOM COMMAND-SET FOR QUESTIONARIES
+\input{questionaries}
+%% ---------------------------------------------------------------------------
 
 %% --- HYPERLINKS & METADATA -------------------------------------------------
 \usepackage{hyperref}
@@ -130,7 +136,7 @@
 
 %>FRONTESPIZIO
 \newgeometry{top=0cm,bottom=1cm,left=3cm,right=3cm}
-\input{titlepage.tex}
+\input{titlepage}
 \frontmatter
 \restoregeometry
 \input{Capitoli/Dedica}
@@ -143,7 +149,7 @@
 \onehalfspacing % layout "arieggiato"
 
 %>CAPITOLI
-\input{Capitoli/Introduzione.tex}
+\input{Capitoli/Introduzione}
 \input{Capitoli/Materiali e metodi}
 \input{Capitoli/Risultati}
 \input{Capitoli/Discussione}
@@ -156,7 +162,7 @@
 \end{appendices}
 
 %>RINGRAZIAMENTI
-\input{Capitoli/Ringraziamenti.tex}
+\input{Capitoli/Ringraziamenti}
 
 %>BIBLIOGRAFIA
 \printbibliography[heading=bibintoc,title={Bibliografia}]
