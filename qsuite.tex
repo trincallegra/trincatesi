@@ -15,10 +15,10 @@
 \begin{tcolorbox}
 [breakable,
 title=#1,
-colback=\Qcolor!40,
-colframe=\Qcolor!40,
+colback=\Qcolor!25,
+colframe=\Qcolor!25,
 coltitle=black,
-colbacktitle=\Qcolor!75,
+colbacktitle=\Qcolor!50,
 fonttitle=\sffamily\mdseries\scshape,
 halign title=flush center,
 arc=3mm,
@@ -41,7 +41,7 @@ itemsep=1.5em]
 %% > Used both by direct call and by \Qlist itemization.
 \fboxsep=1mm \fboxrule=0.6pt
 \newcommand{\Qbox}
-{\fcolorbox{black}{\Qcolor!10}{\color{\Qcolor!10}$\ocircle$}}
+{\fcolorbox{black}{\Qcolor!8}{\color{\Qcolor!8}$\ocircle$}}
 %% > or replace $\ocircle$ with $\Box$, making the resulting box a little wider...
 
 %% \Qlist -> This is an environment very similar to itemize but with
@@ -56,7 +56,7 @@ itemsep=1.5em]
 
 %% \Qnum -> Similar to \Qbox, but it contains a number.
 %% > Used within \Qrating.
-\newcommand{\Qnum}[1]{\colorbox{\Qcolor!10}{#1}}
+\newcommand{\Qnum}[1]{\colorbox{\Qcolor!8}{#1}}
 
 %% \Qrating{N} -> Automatically create a rating scale with N steps.
 %% > like this: [1] [2] [3] … [N] .
