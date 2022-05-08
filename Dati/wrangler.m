@@ -43,6 +43,7 @@
    
  % Store the labels
    LABEL = opts.VariableNames;
+   FARMACI = {'Propofol','Ketamina','Midazolam','Dexmedetomidina'};
    
 %% Get rid of unwanted strings: convert to num-cells 
    to_convert = strfind(opts.VariableTypes,'string');
