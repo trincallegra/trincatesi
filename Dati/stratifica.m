@@ -1,5 +1,5 @@
-  % Prepare Data 
-    wrangler;
+  % Load Data 
+    load WRANGLED
     
   % Setup Colorspace
     import plotDMFT.colorlab.*

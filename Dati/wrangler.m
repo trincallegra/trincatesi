@@ -62,5 +62,6 @@
  % Import the questions
    QUERY = readtable("RAW.xlsx",opts,"UseExcel",false);
 
-%% Final clean-up
-   clear opts tmps
+%% Final clean-up & save to mat
+   clear opts tmps to_convert q
+   save  WRANGLED
