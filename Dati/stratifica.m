@@ -20,5 +20,5 @@
         ylabel(FARMACI{i}); set(gca,'Color','None');
     end
     
-    export_fig ../Figure/qualità-stratificata -transparent -pdf -svg
-    export_fig ../Figure/qualità-stratificata -transparent -png -r600
+    export_fig ../Figure/qualita-stratificata -transparent -pdf -svg
+    export_fig ../Figure/qualita-stratificata -transparent -png -r600
