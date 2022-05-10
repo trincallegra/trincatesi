@@ -1,0 +1,1 @@
+[![PDF](https://github.com/trincallegra/trincatesi/actions/workflows/latex_build.yml/badge.svg)](https://github.com/trincallegra/trincatesi/actions/workflows/latex_build.yml) [![DOCX](https://github.com/trincallegra/trincatesi/actions/workflows/docx_build.yml/badge.svg)](https://github.com/trincallegra/trincatesi/actions/workflows/docx_build.yml) 
