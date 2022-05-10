@@ -1,21 +1,14 @@
 name: Build DOCX document from LaTeX source
 on: [push]
 jobs:
-  Test_PdfLaTeX:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout working tree
-        uses: actions/checkout@v2
-      - name: Test PdfLaTeX build
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: main.tex
   PanDocX_Build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - run: mkdir output
-      - uses: docker://pandoc/core:2.18
+      - name: Setup working directory
+        uses: actions/checkout@v2
+      - run : mkdir output
+      - name: Build DOCX through PanDoc
+        uses: docker://pandoc/core:2.18
         with:
           args: >- # allows multi-line parsing
             -s main.tex 
@@ -26,7 +19,8 @@ jobs:
             --bibliography Bibliografia/Testi.bib 
             --bibliography Bibliografia/Web.bib 
             --csl ieee.csl --citeproc
-      - uses: actions/upload-artifact@master
+      - name: Prepare artifact and clean-up
+        uses: actions/upload-artifact@master
         with:
           name: pandoc
           path: output
