@@ -1,8 +1,9 @@
-%% IMPORT AND WRANGLING FROM RAW DATA
+%% IMPORT AND WRANGLE RAW DATA
 
-   clearvars; nQ=32; % number of Queries
+ % Number of Queries
+   nQ = 32;
 
-%% Set up the Import Options and import the data
+ % Set up the Import Options and import the data
    opts = spreadsheetImportOptions('NumVariables', nQ);
 
  % Specify sheet and range
@@ -27,7 +28,7 @@
                       'double', 'double', 'double', 'double', 'double',...
                       'double', 'double', 'string'};
    opts.VariableTypes{02} = 'categorical'; % Better for stratification
-   opts.VariableTypes{30} = 'categorical'; % Data format has changed..
+   opts.VariableTypes{30} = 'categorical'; % Data format has changed...
 
  % Specify variable properties
    opts = setvaropts(opts, {'PROPOFOLEFFETTI', 'KETAMINAEFFETTI',...
@@ -47,7 +48,7 @@
    LABEL = opts.VariableNames;
    FARMACI = {'Propofol','Ketamina','Midazolam','Dexmedetomidina'};
    
-%% Get rid of unwanted strings: convert to num-cells 
+ % Get rid of unwanted strings: convert to num-cells 
    to_convert = strfind(opts.VariableTypes,'string');
    for q = 1:nQ
        if to_convert{q}
@@ -56,7 +57,7 @@
        end
    end
 
-%% Readjust the Options to load the extended queries
+ % Readjust the Options to load the extended queries
    opts.DataRange = 'A53:AF53';
    opts.VariableTypes = replace(opts.VariableTypes,'double','string');
    opts.VariableTypes = replace(opts.VariableTypes,'categorical','string');
@@ -64,6 +65,6 @@
  % Import the questions
    QUERY = readtable('RAW.xlsx',opts,'UseExcel',false);
 
-%% Final clean-up & save to mat
+ % Final clean-up & save to mat
    clear opts tmps to_convert q
-   save  WRANGLED
+   save  WRANGLED.mat
