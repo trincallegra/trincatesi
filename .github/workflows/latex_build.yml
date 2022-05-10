@@ -11,6 +11,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
+      - run : mv main.pdf output/draft.pdf
       - name: Prepare artifact and clean-up
         uses: actions/upload-artifact@master
         with:
