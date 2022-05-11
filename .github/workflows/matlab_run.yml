@@ -22,7 +22,10 @@ jobs:
           repository: bellomia/MATVERSE
           path: MAT
           submodules: recursive
-      - run : cd $GITHUB_WORKSPACE
+      - run : | # External dependencies for export_figure
+          sudo apt update
+          sudo apt install ghostscript -y
+          cd $GITHUB_WORKSPACE
       # Run all MATLAB scripts in the appropriate order
       - name: Run all scripts
         uses: matlab-actions/run-command@v1
