@@ -1,4 +1,5 @@
-name: Run MATLAB scripts and check output against commit
+# Run MATLAB scripts and check output against commit
+name: Data-Analysis
 on: [push]
 jobs:
   vtests:
@@ -42,7 +43,6 @@ jobs:
             cd ..
       # Compare the new output with the backup (vtests)
       - name: Perform visual test
-        continue-on-error: true
         uses: matlab-actions/run-command@v1
         with:      
           command: | # here we are in the MATLAB shell
@@ -75,12 +75,12 @@ jobs:
             fprintf('> All visual tests passed!\n');
       # Upload all the new and old figures: human-eye test
       - name: Collect all the generated files... clean-up
+        if  : failure() # don't collect anything if passed
         run : |
             mkdir failed
             mv Ref failed/OLD
             cp -r Figure failed/NEW
       - name: Upload old and new artifacts for human check
-        if  : failure() # do not upload anything if passed
         uses: actions/upload-artifact@master
         with:
           name: vdiffs

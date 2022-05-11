@@ -1,4 +1,5 @@
-name: Build PDF document from LaTeX source
+# Build PDF document from LaTeX source
+name: LaTeXmk Build 
 on: [push]
 jobs:
   PdfLaTeX_Build:

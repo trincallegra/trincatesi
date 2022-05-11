@@ -1,4 +1,5 @@
-name: Build DOCX document from LaTeX source
+# Build DOCX document from LaTeX source
+name: PanDocX Build
 on: [push]
 jobs:
   PanDocX_Build:
