@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup working directory
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - run : mkdir output  
       - name: Build PDF through LaTeXmk
         uses: xu-cheng/latex-action@v2
@@ -15,5 +15,5 @@ jobs:
       - name: Prepare artifact and clean-up
         uses: actions/upload-artifact@master
         with:
-          name: pdflatex
+          name: download.pdf
           path: output

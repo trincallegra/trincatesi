@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup working directory
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - run : mkdir output
       - name: Build DOCX through PanDoc
         uses: docker://pandoc/core:2.18
@@ -22,5 +22,5 @@ jobs:
       - name: Prepare artifact and clean-up
         uses: actions/upload-artifact@master
         with:
-          name: pandoc
+          name: download.docx
           path: output
