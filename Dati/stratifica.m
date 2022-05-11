@@ -16,7 +16,7 @@
         subplot(2,2,i)
         hbx = boxplot(DATA.SEDAZIONIMESE,DATA.(LABEL{4+i}),...
             'BoxFaceColor',color_order(i,:),'MarkerColor',color_order(i,:),...
-            'MarkerStyle','*','MarkerSize',10,'Notch','off','LineWidth',1);
+            'MarkerStyle','*','MarkerSize',10,'Notch','off','LineWidth',0.5);
         ylabel(FARMACI{i}); set(gca,'Color','None'); grid on
     end
     
