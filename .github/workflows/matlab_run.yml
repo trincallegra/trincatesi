@@ -1,0 +1,85 @@
+name: Run MATLAB scripts and check output against commit
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # Clone this repository on the GitHub Actions runner 
+      - uses: actions/checkout@v3
+        with:
+          path: $GITHUB_WORKSPACE/TH
+      # Backup all PNG files to later perform visual tests
+      - run : >- # allows multi-line parsing
+          cd $GITHUB_WORKSPACE/TH
+          cp -r Figure Ref
+          cd $GITHUB_WORKSPACE
+      # Setup MATLAB @ latest on the GitHub Actions runner
+      - name: Setup MATLAB
+        uses: matlab-actions/setup-matlab@v1
+        with:
+          release: latest
+      # Install all MATLAB dependencies from the MATVERSE
+      - name: Init the MATVERSE
+        uses: actions/checkout@v3
+        with:
+          repository: bellomia/MATVERSE
+          path: $GITHUB_WORKSPACE/TH/MAT
+          submodules: recursive
+      - run : cd $GITHUB_WORKSPACE
+      - name: Enter the MATVERSE
+        uses: matlab-actions/run-command@v1
+        with:      
+          command: >- # here we are in the MATLAB shell
+            addpath('MAT')
+            matverse.enter
+            savepath
+      # Run all MATLAB scripts in the appropriate order
+      - name: Run all scripts
+        uses: matlab-actions/run-command@v1
+        with:      
+          command: >- # here we are in the bash shell
+            cd TH/Dati
+            wrangler 
+            qualita 
+            stratifica
+            cd ..
+      # Compare the new output with the backup
+      - name: Perform visual test
+        continue-on-error: true
+        uses: matlab-actions/run-command@v1
+        with:      
+          command: >- # here we are in the MATLAB shell
+            cd TH/Ref
+            fprintf('Starting with visual tests...\n');
+            old = {dir('*.png').name};
+            for i = 1:length({old.name})
+                imold{i} = imread(old{i}});
+            end
+            cd ../Figure
+            new = {dir('*.png').name};
+            for i = 1:length({old.name})
+                imnew{i} = imread(new{i}});
+                if isequal(imnew{i},imold{i});
+                   vflag(i) = false;
+                else
+                   vflag(i) = true;
+                   fprintf(2,'Failed: %s\n',new{i});
+                   writecell(new{i},'vfail.txt',...
+                              'Delimiter','tab',...
+                              'WriteMode','append');
+                end
+            end
+            assert(any(vflag),'Some vtest failed:');
+            fprintf('> All visual tests passed!\n');
+      - run : cat Figure/vfail.txt # print to logfile
+      # Upload all the new and old figures: human-eye test
+      - run : >- 
+            mkdir failed
+            mv -r Ref    failed/OLD
+            mv -r Figure failed/NEW
+      - name: Upload old and new artifacts for human check
+        if  : failure() # do not upload anything if passed
+        uses: actions/upload-artifact@master
+        with:
+          name: vdiffs
+          path: failed
