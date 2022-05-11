@@ -1,25 +1,16 @@
-function palette = palette(n,handle)
-
+function ncolors = palette(n,handle)
+%% PALETTE defines a unified color-scheme for all plots
+ % It defines four colors in the HEX space, as provided
+ % by: < https://usbrandcolors.com/microsoft-colors/ >.
     assert(n <= 4,'Only 4 colors are defined.')
-%{
-    palette = [(rgb2hex([127,186,0])) ; % gmicrosoft
-               (rgb2hex([242,80,34])) ; % rmicrosoft
-               (rgb2hex([255,185,0])) ; % ymicrosoft
-               (rgb2hex([0,164,239]))]; % bmicrosoft
-                ^ external dependency -> better to avoid!
-%} 
-    palette = ['#7FBA00' ; % gmicrosoft
+    ncolors = ['#7FBA00' ; % gmicrosoft
                '#F25022' ; % rmicrosoft
                '#FFB900' ; % ymicrosoft
                '#00A4EF']; % bmicrosoft
-
-
-    palette = palette(1:n,:);
-
-    if nargin < 2
-        handle = [];
+    ncolors = ncolors(1:n,:);
+    if nargin < 2 % by default do not set anything.
+        handle = []; 
+    else % if instead a handle is provided, set it.
+        set(handle,'DefaultAxesColorOrder',ncolors);
     end
-
-    set(handle,'DefaultAxesColorOrder',palette);
-
 end

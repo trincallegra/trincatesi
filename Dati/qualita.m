@@ -1,5 +1,4 @@
 %% COMPARE QUALITY PERCEPTION FOR THE FOUR DRUGS
-
   % WHICH FORMAT? ('colorful' or 'connected')
     format = 'colorful';
 
