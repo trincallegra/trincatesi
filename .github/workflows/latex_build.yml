@@ -2,7 +2,7 @@
 name: LaTeXmk Build 
 on: [push]
 jobs:
-  PdfLaTeX_Build:
+  LaTeXmk-BUILD:
     runs-on: ubuntu-latest
     steps:
       - name: Setup working directory

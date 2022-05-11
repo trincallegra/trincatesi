@@ -2,7 +2,7 @@
 name: Data-Analysis
 on: [push]
 jobs:
-  vtests:
+  MATLAB-RUN:
     runs-on: ubuntu-latest
     steps:
       # Clone this repository on the GitHub Actions runner 
@@ -43,6 +43,7 @@ jobs:
             cd ..
       # Compare the new output with the backup (vtests)
       - name: Perform visual test
+        continue-on-error: true # soft fail for vtests
         uses: matlab-actions/run-command@v1
         with:      
           command: | # here we are in the MATLAB shell
@@ -68,18 +69,19 @@ jobs:
                 end
             end
             cd ..
-            if(any(vflag)) % print to logfile
-              !cat Figure/vfail.txt 
+            if(any(vflag)) 
+              % Print the list of failures
+              !cat Figure/vfail.txt
+              % Clean & Collect all the generated files
+              !mkdir failed
+              !mv Figure/vfail.txt failed
+              !mv Ref failed/OLD
+              !cp -r Figure failed/NEW
+              % Raise exception
               error('Some vtest failed:');
             end
             fprintf('> All visual tests passed!\n');
       # Upload all the new and old figures: human-eye test
-      - name: Collect all the generated files... clean-up
-        if  : failure() # don't collect anything if passed
-        run : |
-            mkdir failed
-            mv Ref failed/OLD
-            cp -r Figure failed/NEW
       - name: Upload old and new artifacts for human check
         uses: actions/upload-artifact@master
         with:

@@ -2,7 +2,7 @@
 name: PanDocX Build
 on: [push]
 jobs:
-  PanDocX_Build:
+  PanDocX-BUILD:
     runs-on: ubuntu-latest
     steps:
       - name: Setup working directory
