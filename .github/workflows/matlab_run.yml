@@ -15,7 +15,7 @@ jobs:
         uses: matlab-actions/setup-matlab@v1
         with:
           release: latest
-      # Install all MATLAB dependencies from the MATVERSE
+      # Retrieve all MATLAB dependencies from the MATVERSE
       - name: Init the MATVERSE
         uses: actions/checkout@v3
         with:
@@ -23,24 +23,19 @@ jobs:
           path: MAT
           submodules: recursive
       - run : cd $GITHUB_WORKSPACE
-      - name: Enter the MATVERSE
-        uses: matlab-actions/run-command@v1
-        with:      
-          command: | # here we are in the MATLAB shell
-            addpath('MAT')
-            matverse.enter
-            savepath
       # Run all MATLAB scripts in the appropriate order
       - name: Run all scripts
         uses: matlab-actions/run-command@v1
         with:      
           command: | # here we are in the MATLAB shell
+            addpath('MAT')
+            matverse.enter
             cd Dati
             wrangler 
             qualita 
             stratifica
             cd ..
-      # Compare the new output with the backup
+      # Compare the new output with the backup (vtests)
       - name: Perform visual test
         continue-on-error: true
         uses: matlab-actions/run-command@v1
