@@ -1,7 +1,4 @@
 %% COMPARE QUALITY PERCEPTION FOR THE FOUR DRUGS
-  % WHICH FORMAT? ('colorful' or 'connected')
-    format = 'colorful';
-
   % Load Data
     load WRANGLED.mat
     
@@ -10,9 +7,7 @@
 
 %% Comparison of boxplots along experience order (loop formalism)
  % > pro: compliant with color-scheme (very flexible with colors)
- % > con: four different plots, forcefully linked (awkard grid)
-  switch format
-    case 'colorful'
+ % > con: four different plots, forcefully linked (awkard grid
   % Setup data for multiple boxplot
     for i = 1:length(FARMACI)
         QUALITY = DATA.(LABEL{i+4});
@@ -26,11 +21,12 @@
         end
     end
     linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
+  % Save figure
+    export_fig (gcf,'../Figure/qualita-colorful'); close(gcf)
 
 %% Comparison of boxplots along experience order (matrix formalism)
  % > pro: unique figure (natively)
  % > con: unique color (inevitable)
-    case 'connected'
   % Setup data for multiple boxplot
     for i = 1:length(FARMACI)
         QUALITY(:,i) = DATA.(LABEL{i+4});
@@ -40,8 +36,5 @@
         'BoxFaceColor',0.5*ones(1,3),'MarkerColor',0.5*ones(1,3),...
         'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',1);
     xticklabels(FARMACI); set(gca,'Color','None'); grid on
-  end
-
-    filename = ['../Figure/qualita-',format];
-    export_fig (filename,'-transparent','-pdf','-svg')
-    export_fig (filename,'-transparent','-png','-r600')
+  % Save figure
+    export_fig (gcf,'../Figure/qualita-connected'); close(gcf)

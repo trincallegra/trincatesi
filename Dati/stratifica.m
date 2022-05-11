@@ -19,5 +19,5 @@
         ylabel(FARMACI{i}); set(gca,'Color','None'); grid on
     end
     
-    export_fig('../Figure/qualita-stratificata','-transparent','-pdf','-svg' )
-    export_fig('../Figure/qualita-stratificata','-transparent','-png','-r600')
+  % Save figure
+    export_fig(gcf,'../Figure/qualita-stratificata')
