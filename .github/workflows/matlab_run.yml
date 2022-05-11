@@ -70,15 +70,13 @@ jobs:
             end
             cd ..
             if(any(vflag)) 
-              % Print the list of failures
-              !cat Figure/vfail.txt
               % Clean & Collect all the generated files
               !mkdir failed
               !mv Figure/vfail.txt failed
               !mv Ref failed/OLD
               !cp -r Figure failed/NEW
               % Raise exception
-              error('Some vtest failed:');
+              error('^^^ Some vtests have failed! ^^^');
             end
             fprintf('> All visual tests passed!\n');
       # Upload all the new and old figures: human-eye test
