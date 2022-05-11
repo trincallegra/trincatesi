@@ -1,13 +1,14 @@
 name: Run MATLAB scripts and check output against commit
 on: [push]
 jobs:
-  build:
+  vtests:
     runs-on: ubuntu-latest
     steps:
       # Clone this repository on the GitHub Actions runner 
       - uses: actions/checkout@v3
       # Backup all PNG files to later perform visual tests
-      - run : | # allows multi-line parsing *including* \n
+      - name: Backup committed figures
+        run : | # allows multi-line parsing *including* \n
           cd $GITHUB_WORKSPACE
           cp -r Figure Ref
       # Setup MATLAB @ latest on the GitHub Actions runner
@@ -22,9 +23,10 @@ jobs:
           repository: bellomia/MATVERSE
           path: MAT
           submodules: recursive
-      - run : | # External dependencies for export_figure
-          sudo apt update
-          sudo apt install ghostscript -y
+      - name: Retrieve GHOSTSCRIPT
+        run : | # External dependency for export_figure
+          sudo apt-get update
+          sudo apt-get install ghostscript -y
           cd $GITHUB_WORKSPACE
       # Run all MATLAB scripts in the appropriate order
       - name: Run all scripts
@@ -47,31 +49,36 @@ jobs:
             cd Ref
             fprintf('Starting with visual tests...\n');
             old = {dir('*.png').name};
-            for i = 1:length({old.name})
-                imold{i} = imread(old{i}});
+            vflag = false(1,length(old));
+            for i = 1:length(old)
+                imold{i} = imread(old{i});
             end
             cd ../Figure
             new = {dir('*.png').name};
-            for i = 1:length({old.name})
-                imnew{i} = imread(new{i}});
+            for i = 1:length(old)
+                imnew{i} = imread(new{i});
                 if isequal(imnew{i},imold{i});
                    vflag(i) = false;
                 else
                    vflag(i) = true;
                    fprintf(2,'Failed: %s\n',new{i});
-                   writecell(new{i},'vfail.txt',...
+                   writecell(new(i),'vfail.txt',...
                               'Delimiter','tab',...
                               'WriteMode','append');
                 end
             end
-            assert(any(vflag),'Some vtest failed:');
+            cd ..
+            if(any(vflag)) % print to logfile
+              !cat Figure/vfail.txt 
+              error('Some vtest failed:');
+            end
             fprintf('> All visual tests passed!\n');
-      - run : cat Figure/vfail.txt # print to logfile
       # Upload all the new and old figures: human-eye test
-      - run : |
+      - name: Collect all the generated files... clean-up
+        run : |
             mkdir failed
-            mv -r Ref    failed/OLD
-            mv -r Figure failed/NEW
+            mv Ref failed/OLD
+            cp -r Figure failed/NEW
       - name: Upload old and new artifacts for human check
         if  : failure() # do not upload anything if passed
         uses: actions/upload-artifact@master
