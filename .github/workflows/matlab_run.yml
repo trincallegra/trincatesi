@@ -6,13 +6,10 @@ jobs:
     steps:
       # Clone this repository on the GitHub Actions runner 
       - uses: actions/checkout@v3
-        with:
-          path: $GITHUB_WORKSPACE/TH
       # Backup all PNG files to later perform visual tests
-      - run : >- # allows multi-line parsing
-          cd $GITHUB_WORKSPACE/TH
-          cp -r Figure Ref
+      - run : | # allows multi-line parsing *including* \n
           cd $GITHUB_WORKSPACE
+          cp -r Figure Ref
       # Setup MATLAB @ latest on the GitHub Actions runner
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v1
@@ -23,13 +20,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: bellomia/MATVERSE
-          path: $GITHUB_WORKSPACE/TH/MAT
+          path: MAT
           submodules: recursive
       - run : cd $GITHUB_WORKSPACE
       - name: Enter the MATVERSE
         uses: matlab-actions/run-command@v1
         with:      
-          command: >- # here we are in the MATLAB shell
+          command: | # here we are in the MATLAB shell
             addpath('MAT')
             matverse.enter
             savepath
@@ -37,8 +34,8 @@ jobs:
       - name: Run all scripts
         uses: matlab-actions/run-command@v1
         with:      
-          command: >- # here we are in the bash shell
-            cd TH/Dati
+          command: | # here we are in the MATLAB shell
+            cd Dati
             wrangler 
             qualita 
             stratifica
@@ -48,8 +45,8 @@ jobs:
         continue-on-error: true
         uses: matlab-actions/run-command@v1
         with:      
-          command: >- # here we are in the MATLAB shell
-            cd TH/Ref
+          command: | # here we are in the MATLAB shell
+            cd Ref
             fprintf('Starting with visual tests...\n');
             old = {dir('*.png').name};
             for i = 1:length({old.name})
@@ -73,7 +70,7 @@ jobs:
             fprintf('> All visual tests passed!\n');
       - run : cat Figure/vfail.txt # print to logfile
       # Upload all the new and old figures: human-eye test
-      - run : >- 
+      - run : |
             mkdir failed
             mv -r Ref    failed/OLD
             mv -r Figure failed/NEW
