@@ -3,10 +3,13 @@ function ncolors = palette(n,handle)
  % It defines four colors in the HEX space, as provided
  % by: < https://usbrandcolors.com/microsoft-colors/ >.
     assert(n <= 4,'Only 4 colors are defined.')
-    ncolors = ['#7FBA00' ; % gmicrosoft
-               '#F25022' ; % rmicrosoft
-               '#FFB900' ; % ymicrosoft
-               '#00A4EF']; % bmicrosoft
+    % < https://github.com/bellomia/MATVERSE
+    matverse.enter 
+    % > access external library containing hex2rgb
+    ncolors = [hex2rgb('#7FBA00') ; % gmicrosoft
+               hex2rgb('#F25022') ; % rmicrosoft
+               hex2rgb('#FFB900') ; % ymicrosoft
+               hex2rgb('#00A4EF')]; % bmicrosoft
     ncolors = ncolors(1:n,:);
     if nargin < 2 % by default do not set anything.
         handle = []; 
