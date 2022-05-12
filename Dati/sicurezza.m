@@ -17,6 +17,8 @@
                 'FaceAlpha',0.2,'EdgeColor',colors(i,:)); 
       ylabel(FARMACI{i}); set(gca,'Color','None'); grid on
    end
+   
+ % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
 
  % Save figure

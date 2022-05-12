@@ -13,6 +13,8 @@ on: # setup triggers
         type: choice
         options:
         - latest
+        - R2022a
+        - R2021b
         - R2021a
         - R2020b
         - R2020a
