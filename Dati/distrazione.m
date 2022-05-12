@@ -1,18 +1,23 @@
 %% DISTRIBUTION OF MISDIRECTION TECHNIQUES
  % Load Data
    load WRANGLED.mat
-    
- % Setup Colorscheme
-   colors = palette(4);
    
  % Setup Ordering
    order = {'Per niente','Abbastanza','Molto','Moltissimo'};
    array = categorical(DATA.DISTRAZIONE,order,'Ordinal',true);
+   
+ % Setup Colorscheme
+   colors = palette(length(order));
 
+ % Build single histogram (unique color)
    histogram(array,'FaceColor',colors(4,:),...
             'EdgeColor',colors(4,:),'FaceAlpha',0.2); grid on
         
-   xticklabels(lower(order)); % lower-case enforcing
+ % Enforce lower-case labels     
+   xticklabels(lower(order)); 
 
+ % Fix aspect ratio
+   fig = gcf; fig.Position(3:4) = [350, 210];
+   
  % Save figure
-   export_fig(gcf,'../Figure/distrazione')
+   export_fig(fig,'../Figure/distrazione')

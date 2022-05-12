@@ -67,6 +67,7 @@ jobs:
             effetti;     close all 
             distrazione; close all 
             sicurezza;   close all
+            rescue;      close all
             cd ..
       # Compare the new output with the backup (vtests)
       - name: Perform visual test

@@ -27,5 +27,8 @@
  % Normalize heights
    linkaxes([hax(1),hax(2)],'y');
 
+ % Fix aspect ratio
+   fig = gcf; fig.Position(3:4) = [700, 420];   
+   
  % Save figure
-   export_fig(gcf,'../Figure/esperienzaVSfrequenza')
+   export_fig(fig,'../Figure/esperienzaVSfrequenza')

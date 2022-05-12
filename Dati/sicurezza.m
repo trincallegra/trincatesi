@@ -20,6 +20,9 @@
    
  % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
+   
+ % Fix aspect ratio
+   fig = gcf; fig.Position(3:4) = [700, 420];
 
  % Save figure
-   export_fig(gcf,'../Figure/sicurezza')
+   export_fig(fig,'../Figure/sicurezza')
