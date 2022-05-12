@@ -6,8 +6,8 @@
    colors = palette(length(FARMACI));
 
 %% Comparison of boxplots along experience order (matrix formalism)
- % + pro: unique figure (natively)
- % − con: unique color (inevitable)
+ % > pro: unique figure (natively)
+ % > con: unique color (inevitable)
 
  % Setup data for multiple boxplot
    for i = 1:length(FARMACI)
@@ -24,8 +24,8 @@
    export_fig(gcf,'../Figure/qualita-connected'); close(gcf)   
    
 %% Comparison of boxplots along experience order (loop formalism)
- % + pro: compliant with color-scheme (very flexible with colors)
- % − con: four different plots, forcefully linked (awkard grid)
+ % > pro: compliant with color-scheme (very flexible with colors)
+ % > con: four different plots, forcefully linked (awkard grid)
 
  % Build the boxplots one by one
    for i = 1:length(FARMACI)
