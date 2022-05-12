@@ -12,11 +12,11 @@ jobs:
         run : | # allows multi-line parsing *including* \n
           cd $GITHUB_WORKSPACE
           cp -r Figure Ref
-      # Setup MATLAB @ latest on the GitHub Actions runner
+      # Setup MATLAB @ R2020b on the GitHub Actions runner
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v1
         with:
-          release: latest
+          release: R2020b
       # Retrieve all MATLAB dependencies from the MATVERSE
       - name: Init the MATVERSE
         uses: actions/checkout@v3
