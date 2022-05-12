@@ -26,6 +26,10 @@
    
  % Normalize heights
    linkaxes([hax(1),hax(2)],'y');
+   
+ % Fix screen ratio
+   fig = gcf; set(fig,'Units','normalized') 
+   fig.Position(3:4) = [0.2,0.3];
 
  % Save figure
    export_fig(gcf,'../Figure/esperienzaVSfrequenza')

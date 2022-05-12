@@ -28,6 +28,10 @@
  % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4),hax(5),hax(6),hax(7),...
              hax(8),hax(9),hax(10)],'y'); 
-   
+
+ % Fix screen ratio
+   fig = gcf; set(fig,'Units','normalized') 
+   fig.Position(3:4) = [0.2,0.3];         
+         
  % Save Figure
    export_fig(gcf,'../Figure/influenza-effetti');

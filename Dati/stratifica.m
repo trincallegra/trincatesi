@@ -35,6 +35,10 @@
          'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',0.5);
        ylabel(FARMACI{i}); set(gca,'Color','None'); grid on
    end
+   
+% Fix screen ratio
+  set(hsen,'Units','normalized'); set(hexp,'Units','normalized')
+  hsen.Position(3:4) = [0.2,0.3]; hexp.Position(3:4) = [0.2,0.3]
     
  % Save figures
    export_fig(hsen,'../Figure/qualita-strat-esperienza')
