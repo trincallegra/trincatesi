@@ -3,7 +3,7 @@
    load WRANGLED.mat
     
  % Setup Colorscheme
-   colors = lines();
+   colors = palette(4);
  
  % Seniority Axis: numerical values to be binned
    seniority_edges = [0.5 10 20 30 36];
@@ -20,8 +20,8 @@
    experience_array = categorical(DATA.SEDAZIONIMESE, ...
                                   experience_order,'Ordinal',true);
    hax(1) = subplot(1,2,2);
-   histogram(experience_array,'FaceColor',colors(5,:),...
-            'EdgeColor',colors(5,:),'FaceAlpha',0.2); 
+   histogram(experience_array,'FaceColor',colors(2,:),...
+            'EdgeColor',colors(2,:),'FaceAlpha',0.2); 
    subtitle('Numero di sedazioni per mese'); grid on
    
  % Normalize heights

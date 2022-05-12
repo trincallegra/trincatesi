@@ -23,7 +23,11 @@
           '#3FA796'  ;
           '#FFBD35'] ; 
    colormap(hex2rgb(hex));
-  
- % Save figures
-   export_fig(gcf,'../Figure/somministrazione')
+   
+   %colormap(palette(4));
+   
+   labels = {'sempre','solo in pazienti fragili'};
+   slices = categorical(DATA.ACCESSOVENOSO,[0,1],labels);
+   
+   p = pie(slices);
   

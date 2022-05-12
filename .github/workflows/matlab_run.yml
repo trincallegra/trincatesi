@@ -40,6 +40,9 @@ jobs:
             wrangler 
             qualita 
             stratifica
+            frequenza
+            effetti
+            distrazione
             cd ..
       # Compare the new output with the backup (vtests)
       - name: Perform visual test
