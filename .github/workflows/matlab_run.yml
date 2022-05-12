@@ -1,6 +1,21 @@
 # Run MATLAB scripts and check output against commit
 name: Data-Analysis
-on: [push]
+on: # setup triggers
+  push:
+    paths: 
+      - '**.m'   # diff in mfiles
+  workflow_dispatch: # manual-run
+    inputs:
+      release:
+        description: 'MATLAB RELEASE'     
+        required: true
+        default: 'R2020b' 
+        type: choice
+        options:
+        - latest
+        - R2021a
+        - R2020b
+        - R2020a
 jobs:
   MATLAB-RUN:
     runs-on: ubuntu-latest
@@ -12,11 +27,16 @@ jobs:
         run : | # allows multi-line parsing *including* \n
           cd $GITHUB_WORKSPACE
           cp -r Figure Ref
-      # Setup MATLAB @ R2020b on the GitHub Actions runner
+      - name: Define MATLAB release
+        id  : release
+        run : | # here we use /shell parameter expansion/
+          RELEASE=${{ github.event.inputs.release }}
+          echo "::set-output name=default::${RELEASE:-"R2020b"}"
+      # Setup MATLAB on the GitHub Actions runner
       - name: Setup MATLAB
         uses: matlab-actions/setup-matlab@v1
-        with:
-          release: R2020b
+        with:      # retrieve previously exported value
+          release: ${{ steps.release.outputs.default}}
       # Retrieve all MATLAB dependencies from the MATVERSE
       - name: Init the MATVERSE
         uses: actions/checkout@v3
@@ -38,12 +58,13 @@ jobs:
             addpath('MAT')
             matverse.enter
             cd Dati
-            wrangler 
-            qualita 
-            stratifica
-            frequenza
-            effetti
-            distrazione
+            wrangler   % import data
+            qualita;     close all 
+            stratifica;  close all 
+            frequenza;   close all 
+            effetti;     close all 
+            distrazione; close all 
+            sicurezza;   close all
             cd ..
       # Compare the new output with the backup (vtests)
       - name: Perform visual test
