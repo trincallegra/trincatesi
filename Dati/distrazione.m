@@ -14,9 +14,5 @@
         
    xticklabels(lower(order)); % lower-case enforcing
 
- % Fix screen ratio
-   fig = gcf; set(fig,'Units','normalized') 
-   fig.Position(3:4) = [0.1,0.15];   
-   
  % Save figure
    export_fig(gcf,'../Figure/distrazione')

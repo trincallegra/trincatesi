@@ -20,10 +20,6 @@
         'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',1);
    xticklabels(FARMACI); set(gca,'Color','None'); grid on
    
-% Fix screen ratio
-   fig = gcf; set(fig,'Units','normalized') 
-   fig.Position(3:4) = [0.2,0.25];
-   
  % Save figure
    export_fig(gcf,'../Figure/qualita-connected'); close(gcf)   
    
@@ -47,9 +43,8 @@
  % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
    
- % Fix screen ratio
-   fig = gcf; set(fig,'Units','normalized') 
-   fig.Position(3:4) = [0.2,0.25];
+ % Fix aspect ratio
+   fig = gcf; fig.Position(3:4) = [700, 420];
    
  % Save Figure
    export_fig (gcf,'../Figure/qualita-colorful')
