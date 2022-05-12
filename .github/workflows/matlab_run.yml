@@ -34,6 +34,7 @@ jobs:
         uses: matlab-actions/run-command@v1
         with:      
           command: | # here we are in the MATLAB shell
+            ver % print to log the *exact* version
             addpath('MAT')
             matverse.enter
             cd Dati
