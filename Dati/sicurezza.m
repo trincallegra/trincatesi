@@ -15,14 +15,14 @@
                              [NaN,1,6,10],safety_order);
       histogram(safety_score,'FaceColor',colors(i,:),...
                 'FaceAlpha',0.2,'EdgeColor',colors(i,:)); 
-      ylabel(FARMACI{i}); set(gca,'Color','None'); grid on
+      ylabel(FARMACI{i}); grid on
    end
    
  % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
    
- % Fix aspect ratio
-   fig = gcf; fig.Position(3:4) = [700, 420];
+ % Fix aspect ratio and set background color
+   fig = gcf; fig.Position(3:4) = [700, 420]; set(fig,'Color','white'); 
 
  % Save figure
-   export_fig(fig,'../Figure/sicurezza')
+   save_fig(fig,'../Figure/sicurezza')

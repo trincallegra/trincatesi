@@ -11,13 +11,13 @@
 
  % Build single histogram (unique color)
    histogram(array,'FaceColor',colors(4,:),...
-            'EdgeColor',colors(4,:),'FaceAlpha',0.2); grid on
+            'EdgeColor',colors(4,:),'FaceAlpha',0.2); grid on; box off
         
  % Enforce lower-case labels     
    xticklabels(lower(order)); 
 
- % Fix aspect ratio
-   fig = gcf; fig.Position(3:4) = [350, 210];
+ % Fix aspect ratio and set background color
+   fig = gcf; fig.Position(3:4) = [350, 210]; set(fig,'Color','white'); 
    
  % Save figure
-   export_fig(fig,'../Figure/distrazione')
+   save_fig(fig,'../Figure/distrazione')

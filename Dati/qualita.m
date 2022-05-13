@@ -4,42 +4,17 @@
     
  % Setup Colorscheme
    colors = palette(length(FARMACI));
-
-%% Comparison of boxplots along experience order (matrix formalism)
- % > pro: unique figure (natively)
- % > con: unique color (inevitable)
-
- % Setup data for multiple boxplot
-   for i = 1:length(FARMACI)
-       QUALITY(:,i) = DATA.(LABEL{i+4});
-   end
    
- % Build the boxplots all at once
-   hbw = figure('Name','Black&White'); 
-   boxplot(QUALITY,...
-          'BoxFaceColor',0.5*ones(1,3),'MarkerColor',0.5*ones(1,3),...
-          'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',1);
-   xticklabels(FARMACI); set(gca,'Color','None'); grid on
-   
- % Fix aspect ratio
-   hbw.Position(3:4) = [700, 420];
-   
- % Save figure
-   export_fig(hbw,'../Figure/qualita-connected'); 
-   
-%% Comparison of boxplots along experience order (loop formalism)
- % > pro: compliant with color-scheme (very flexible with colors)
- % > con: four different plots, forcefully linked (awkard grid)
-
+%% Comparison of boxplots along experience order
  % Build the boxplots one by one
-   hcb = figure('Name','ColorBoxplot');
+   hbx = figure('Name','MultiBoxplot');
    for i = 1:length(FARMACI)
        QUALITY = DATA.(LABEL{i+4});
        hax(i) = subplot(1,4,i); hold on
        boxplot(QUALITY,...
        'BoxFaceColor',colors(i,:),'MarkerColor',colors(i,:),...
        'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',1);
-       xticklabels(FARMACI{i}); set(gca,'Color','None'); grid on 
+       xticklabels(FARMACI{i}); set(hbx,'Color','white'); grid on 
        if i>1
           hax(i).YAxis.Visible = 'off';
        end
@@ -49,7 +24,7 @@
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
    
  % Fix aspect ratio
-   hcb.Position(3:4) = [700, 420];
+   hbx.Position(3:4) = [700, 420];
    
  % Save Figure
-   export_fig (hcb,'../Figure/qualita-colorful')
+   save_fig (hbx,'../Figure/qualita-colorful')

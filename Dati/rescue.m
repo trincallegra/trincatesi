@@ -16,10 +16,10 @@
  % Manual build of a > multi-color < histogram (separate bars)
    hbar = bar(histcounts(farmaci),0.9,... % setting the width
               'FaceColor','flat','EdgeColor','flat');
-   hbar.CData = colors; hbar.FaceAlpha = 0.2; grid on
+   hbar.CData = colors; hbar.FaceAlpha = 0.2; grid on; box off
    
  % Fine-tune the axes to match histogram aesthetics
-   xlim([0.5,4.5]); ylim([0,45]); 
+   xlim([0.5,4.5]); ylim([0,45]); set(gcf,'Color','white'); 
    
  % Engrave the categorical labels
    xticklabels(categories(farmaci));
@@ -28,4 +28,4 @@
    fig = gcf; fig.Position(3:4) = [525, 315];
    
  % Save figure
-   export_fig(fig,'../Figure/rescue')
+   save_fig(fig,'../Figure/rescue')

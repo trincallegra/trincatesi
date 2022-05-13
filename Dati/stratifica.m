@@ -23,7 +23,7 @@
        hbx = boxplot(seniority_array,DATA.(LABEL{4+i}),...
          'BoxFaceColor',color_order(i,:),'MarkerColor',color_order(i,:),...
          'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',0.5);
-       ylabel(FARMACI{i}); set(gca,'Color','None'); grid on
+       ylabel(FARMACI{i}); set(hsen,'Color','White'); grid on
    end                       
                                  
  % Comparison of quality boxplots along experience axis
@@ -33,7 +33,7 @@
        hbx = boxplot(experience_array,DATA.(LABEL{4+i}),...
          'BoxFaceColor',color_order(i,:),'MarkerColor',color_order(i,:),...
          'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',0.5);
-       ylabel(FARMACI{i}); set(gca,'Color','None'); grid on
+       ylabel(FARMACI{i}); set(hexp,'Color','White'); grid on
    end
    
  % Fix aspect ratio
@@ -41,5 +41,5 @@
    hexp.Position(3:4) = [700, 420];
     
  % Save figures
-   export_fig(hsen,'../Figure/qualita-strat-esperienza')
-   export_fig(hexp,'../Figure/qualita-strat-frequenza')
+   save_fig(hsen,'../Figure/qualita-strat-esperienza')
+   save_fig(hexp,'../Figure/qualita-strat-frequenza')

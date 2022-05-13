@@ -18,7 +18,7 @@
        hbx = boxplot(EFFECT,...
        'BoxFaceColor',colors(i,:),'MarkerColor',colors(i,:),...
        'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',1);
-       xticklabels(effect{i}); set(gca,'Color','None'); grid on 
+       xticklabels(effect{i}); set(gcf,'Color','White'); grid on 
        yticks([1 2 3 4]); yticklabels(score); daspect([2 1 1])
        if i>1
           hax(i).YAxis.Visible = 'off';
@@ -30,7 +30,7 @@
              hax(8),hax(9),hax(10)],'y'); 
   
  % Fix aspect ratio
-   fig = gcf; fig.Position(3:4) = [700, 420];         
+   fig = gcf; fig.Position(3:4) = [700, 420];        
          
  % Save Figure
-   export_fig(fig,'../Figure/influenza-effetti');
+   save_fig(fig,'../Figure/influenza-effetti');
