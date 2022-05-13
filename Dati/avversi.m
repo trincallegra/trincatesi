@@ -1,4 +1,4 @@
-%% Differential incidence of adverse effects
+%% DIFFERENTIAL INCIDENCE OF ADVERSE EFFECTS
  % Load Data
    load WRANGLED.mat
    

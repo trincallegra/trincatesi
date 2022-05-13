@@ -61,15 +61,16 @@ jobs:
             addpath('MAT')
             matverse.enter
             cd Dati
-            wrangler    % import data
-            qualita;      close all 
-            stratifica;   close all 
-            frequenza;    close all
-            avversi;      close all 
-            pericolosita; close all 
-            distrazione;  close all 
-            sicurezza;    close all
-            rescue;       close all
+            wrangler     % import data
+            qualita;       close all 
+            stratifica;    close all 
+            frequenza;     close all
+            avversi;       close all 
+            pericolosita;  close all 
+            distrazione;   close all 
+            sicurezza;     close all
+            rescue;        close all
+            soddisfazione; close all
             cd ..
       # Compare the new output with the backup (vtests)
       - name: Perform visual test
