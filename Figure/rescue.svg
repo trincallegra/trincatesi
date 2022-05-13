@@ -67,22 +67,22 @@
       <polyline fill = "none" stroke-linecap = "square" stroke-linejoin = "miter" stroke = "#262626" stroke-width = "0.500pt" stroke-dasharray = "none" stroke-opacity = "1.000" points = "129.422,664.533 900.978,664.533 "/>
   <g transform = "translate(225.867,676.704)">
     <g transform = "rotate(-0.000)">
-      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>propofol</tspan></text>
+      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>Propofol</tspan></text>
     </g>
   </g>
   <g transform = "translate(418.756,676.704)">
     <g transform = "rotate(-0.000)">
-      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>ketamina</tspan></text>
+      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>Ketamina</tspan></text>
     </g>
   </g>
   <g transform = "translate(611.644,676.704)">
     <g transform = "rotate(-0.000)">
-      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>midazolam</tspan></text>
+      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>Midazolam</tspan></text>
     </g>
   </g>
   <g transform = "translate(804.533,676.704)">
     <g transform = "rotate(-0.000)">
-      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>dexmedetomidina</tspan></text>
+      <text x = "0.000" y = "0.9em" font-family = "Helvetica" text-anchor = "middle" dominant-baseline = "auto" font-size = "13.500pt" fill = "#262626"><tspan>Dexmedetomidina</tspan></text>
     </g>
   </g>
       <polyline fill = "none" stroke-linecap = "square" stroke-linejoin = "miter" stroke = "#262626" stroke-width = "0.500pt" stroke-dasharray = "none" stroke-opacity = "1.000" points = "129.422,664.533 137.138,664.533 "/>

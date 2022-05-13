@@ -22,7 +22,7 @@
    xlim([0.5,4.5]); ylim([0,45]); set(gcf,'Color','none'); 
    
  % Engrave the categorical labels
-   xticklabels(categories(farmaci));
+   xticklabels(FARMACI);
    
  % Fix aspect ratio
    fig = gcf; fig.Position(3:4) = [525, 315];
