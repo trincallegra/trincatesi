@@ -2,48 +2,73 @@
 
 \section{Raccolta e pulizia dei dati}
 \label{code:wrangling}
-\lstinputlisting[]{Dati/wrangler.m}
 
-\section{Percezione globale dei quattro farmaci}
-\label{code:quality-global}
-\lstinputlisting[]{Dati/qualita.m}
+    \lstinputlisting[]{Dati/wrangler.m}
+    \newpage
 
-\section{Esperienza sul campo e frequenza operativa}
-\label{code:seniority-vs-experience}
-\lstinputlisting[]{Dati/frequenza.m}
+\section{Statistica descrittiva}
 
-\section{Analisi stratificata su anni di esperienza e frequenza operativa}
-\label{code:quality-strati}
-\lstinputlisting[]{Dati/stratifica.m}
+% TORTE e ISTOGRAMMI immagino, boh...
 
-\section{Diversificazione degli effetti collaterali}
-\label{code:adverse-effects-incidence}
-\lstinputlisting[]{Dati/avversi.m}
+    \subsection*{Esperienza sul campo e frequenza operativa}
+    \label{code:seniority-vs-experience}
+    \lstinputlisting[]{Dati/frequenza.m}
+    \newpage
+    
+    \subsection*{Diversificazione degli effetti collaterali}
+    \label{code:adverse-effects-incidence}
+    \lstinputlisting[]{Dati/avversi.m}
+    \newpage
 
-\section{Come gli effetti collaterali incidono sulla percezione del farmaco}
-\label{code:adverse-effects-perception}
-\lstinputlisting[]{Dati/pericolosita.m}
+    \subsection*{Frequenza d'impiego di tecniche di distrazione}
+    \label{code:misdirection-techniques}
+    \lstinputlisting[]{Dati/distrazione.m}
+    \newpage
 
-\section{Frequenza d'impiego di tecniche di distrazione}
-\label{code:misdirection-techniques}
-\lstinputlisting[]{Dati/distrazione.m}
+    \subsection*{Frequenza d'impiego di farmaci \emph{rescue}}
+    \label{code:rescue}
+    \lstinputlisting[]{Dati/rescue.m}
+    \newpage
 
-\section{Frequenza d'impiego di farmaci \emph{rescue}}
-\label{code:rescue}
-\lstinputlisting[]{Dati/rescue.m}
+    \subsection*{Grado di sicurezza globalmente percepito}
+    \label{code:safety}
+    \lstinputlisting[]{Dati/sicurezza.m}
+    \newpage
 
-\section{Grado di sicurezza globalmente percepito}
-\label{code:safety}
-\lstinputlisting[]{Dati/sicurezza.m}
-
-\section{Fattori preponderanti nella percezione globale}
-\label{code:satisfaction}
-\lstinputlisting[]{Dati/soddisfazione.m}
+    \subsection*{Fattori preponderanti nella percezione globale}
+    \label{code:satisfaction}
+    \lstinputlisting[]{Dati/soddisfazione.m}
+    \newpage
 
 \newpage
 
-\section{Sotto-routine utilizzate nei codici}
+\section{Test d'ipotesi e Boxplot}
+
+    \subsection*{Analisi stratificata su anni di esperienza e frequenza operativa}
+    \label{code:quality-strati}
+    \lstinputlisting[]{Dati/stratifica.m}
+    \newpage
+
+    \subsection*{Come gli effetti collaterali incidono sulla percezione del farmaco}
+    \label{code:adverse-effects-perception}
+    \lstinputlisting[]{Dati/pericolosita.m}
+    \newpage
+
+    \subsection*{Percezione globale dei quattro farmaci}
+    \label{code:quality-global}
+    \lstinputlisting[]{Dati/qualita.m}
+    \newpage
+
+\newpage
+
+\section{Funzioni speciali utilizzate nei codici}
 \label{code:subroutines}
-\lstinputlisting[]{Dati/palette.m}
-\lstinputlisting[]{Dati/boxplot.m}
-\lstinputlisting[]{Dati/save_fig.m}
+
+    \lstinputlisting[]{Dati/palette.m}
+    \bigskip
+
+    \lstinputlisting[]{Dati/boxplot.m}
+    \bigskip
+
+    \lstinputlisting[]{Dati/save_fig.m}
+    \bigskip

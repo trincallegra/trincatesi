@@ -10,12 +10,10 @@
    seniority_order = {'<10','10-20','21-30','>30'};
    seniority_array = discretize(DATA.ANNI,seniority_edges,...
                            'categorical',seniority_order);
-   
  % Experience Axis: setup categorical ordering
    experience_order = {'<10','10-20','21-30','>30'};
    experience_array = categorical(DATA.SEDAZIONIMESE, ...
                                         experience_order,'Ordinal',true);
-                                    
  % Comparison of quality boxplots along seniority axis
    hsen = figure('Name','Seniority');
    for i = 1:length(FARMACI)
@@ -39,7 +37,6 @@
  % Fix aspect ratio and background color
    hsen.Position(3:4) = [700, 420]; set(hsen,'Color','none');
    hexp.Position(3:4) = [700, 420]; set(hexp,'Color','none');
-    
  % Save figures
    save_fig(hsen,'../Figure/qualita-strat-esperienza')
    save_fig(hexp,'../Figure/qualita-strat-frequenza')
