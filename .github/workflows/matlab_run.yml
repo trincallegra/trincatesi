@@ -28,7 +28,7 @@ jobs:
       - name: Backup committed figures
         run : | # allows multi-line parsing *including* \n
           cd $GITHUB_WORKSPACE
-          cp -r Figure Ref
+          cp -r Figure REF
       - name: Define MATLAB release
         id  : release
         run : | # here we use /shell parameter expansion/
@@ -61,53 +61,24 @@ jobs:
             addpath('MAT')
             matverse.enter
             cd Dati
-            wrangler   % import data
-            qualita;     close all 
-            stratifica;  close all 
-            frequenza;   close all 
-            effetti;     close all 
-            distrazione; close all 
-            sicurezza;   close all
-            rescue;      close all
+            wrangler    % import data
+            qualita;      close all 
+            stratifica;   close all 
+            frequenza;    close all
+            avversi;      close all 
+            pericolosita; close all 
+            distrazione;  close all 
+            sicurezza;    close all
+            rescue;       close all
             cd ..
       # Compare the new output with the backup (vtests)
       - name: Perform visual test
         continue-on-error: true # soft fail for vtests
-        uses: matlab-actions/run-command@v1
-        with:      
-          command: | # here we are in the MATLAB shell
-            cd Ref
-            fprintf('Starting with visual tests...\n');
-            old = {dir('*.png').name};
-            vflag = false(1,length(old));
-            for i = 1:length(old)
-                imold{i} = imread(old{i});
-            end
-            cd ../Figure
-            new = {dir('*.png').name};
-            for i = 1:length(old)
-                imnew{i} = imread(new{i});
-                if isequal(imnew{i},imold{i});
-                   vflag(i) = false;
-                else
-                   vflag(i) = true;
-                   fprintf(2,'Failed: %s\n',new{i});
-                   writecell(new(i),'vfail.txt',...
-                              'Delimiter','tab',...
-                              'WriteMode','append');
-                end
-            end
-            cd ..
-            if(any(vflag)) 
-              % Clean & Collect all the generated files
-              !mkdir failed
-              !mv Figure/vfail.txt failed
-              !mv Ref failed/OLD
-              !cp -r Figure failed/NEW
-              % Raise exception
-              error('^^^ Some vtests have failed! ^^^');
-            end
-            fprintf('> All visual tests passed!\n');
+        run : | # here we setup & launch a python run
+            pip3 install imagehash
+            mv Figure NEW
+            mkdir failed
+            python3 diffimg.py | tee failed/vfail.txt
       # Upload all the new and old figures: human-eye test
       - name: Upload old and new artifacts for human check
         uses: actions/upload-artifact@master
