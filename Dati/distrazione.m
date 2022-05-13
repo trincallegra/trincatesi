@@ -17,7 +17,7 @@
    xticklabels(lower(order)); 
 
  % Fix aspect ratio and set background color
-   fig = gcf; fig.Position(3:4) = [350, 210]; set(fig,'Color','white'); 
+   fig = gcf; fig.Position(3:4) = [350, 210]; set(fig,'Color','none'); 
    
  % Save figure
-   save_fig(fig,'../Figure/distrazione')
+   save_fig(fig,'../Figure/distrazione','native')

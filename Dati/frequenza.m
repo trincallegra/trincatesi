@@ -28,7 +28,7 @@
    linkaxes([hax(1),hax(2)],'y');
 
  % Fix aspect ratio and set background color
-   fig = gcf; fig.Position(3:4) = [700, 420]; set(fig,'Color','white'); 
+   fig = gcf; fig.Position(3:4) = [700, 420]; set(fig,'Color','none'); 
    
  % Save figure
-   save_fig(fig,'../Figure/esperienzaVSfrequenza')
+   save_fig(fig,'../Figure/esperienzaVSfrequenza','native')

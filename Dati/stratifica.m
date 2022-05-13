@@ -19,26 +19,26 @@
  % Comparison of quality boxplots along seniority axis
    hsen = figure('Name','Seniority');
    for i = 1:length(FARMACI)
-       subplot(2,2,i)
-       hbx = boxplot(seniority_array,DATA.(LABEL{4+i}),...
+       hbx = subplot(2,2,i);
+       boxplot(seniority_array,DATA.(LABEL{4+i}),...
          'BoxFaceColor',color_order(i,:),'MarkerColor',color_order(i,:),...
          'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',0.5);
-       ylabel(FARMACI{i}); set(hsen,'Color','White'); grid on
+       ylabel(FARMACI{i}); set(hbx,'Color','none'); grid on
    end                       
                                  
  % Comparison of quality boxplots along experience axis
    hexp = figure('Name','Experience');
    for i = 1:length(FARMACI)
-       subplot(2,2,i)
-       hbx = boxplot(experience_array,DATA.(LABEL{4+i}),...
+       hbx = subplot(2,2,i);
+       boxplot(experience_array,DATA.(LABEL{4+i}),...
          'BoxFaceColor',color_order(i,:),'MarkerColor',color_order(i,:),...
          'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',0.5);
-       ylabel(FARMACI{i}); set(hexp,'Color','White'); grid on
+       ylabel(FARMACI{i}); set(hbx,'Color','none'); grid on
    end
    
- % Fix aspect ratio
-   hsen.Position(3:4) = [700, 420];
-   hexp.Position(3:4) = [700, 420];
+ % Fix aspect ratio and background color
+   hsen.Position(3:4) = [700, 420]; set(hsen,'Color','none');
+   hexp.Position(3:4) = [700, 420]; set(hexp,'Color','none');
     
  % Save figures
    save_fig(hsen,'../Figure/qualita-strat-esperienza')

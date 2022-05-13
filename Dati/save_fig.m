@@ -1,17 +1,23 @@
-function save_fig(fig,name)
+function save_fig(fig,name,native)
 %% SAVE_FIG saves a MATLAB fig to PDF, EPS and PNG
  % Tries the celebrated external library if present.
  % Otherwise calls the native exportgraphics method.
-    try
-        % < https://github.com/bellomia/MATVERSE
-        matverse.enter 
-        % > get export_fig from external library
-        export_fig(fig,name,'-pdf','-eps' )
-        export_fig(fig,name,'-png','-r600')
-    catch
+    if nargin == 3
+        % NATIVE EXPORT GRAPHICS
         exportgraphics(fig,[name,'.pdf'])
         exportgraphics(fig,[name,'.eps'])
-        exportgraphics(fig,[name,'.png'],...
+        exportgraphics(fig,[name,'.png'],... 
                       'Resolution','600')
+    else
+        try % TRY WITH EXPORT-FIG from the MATVERSE
+            % >https://github.com/bellomia/MATVERSE
+            matverse.enter;try;fig2svg([name,'.svg'],fig);end
+            export_fig(fig,name,'-transparent','-pdf','-eps' )
+            export_fig(fig,name,'-transparent','-png','-r600')
+        catch
+            % EXPORT-FIG NOT FOUND (OR GIVES ERROR)
+            % >fall back to native exportgraphics()
+            save_fig(fig,name,'native')
+        end
     end
 end

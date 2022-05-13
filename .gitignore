@@ -1,2 +1,4 @@
-# matlab autosave
+# matlab autosaves
 *.asv 
+# protect svg pics
+*.svg

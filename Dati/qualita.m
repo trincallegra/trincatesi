@@ -14,7 +14,7 @@
        boxplot(QUALITY,...
        'BoxFaceColor',colors(i,:),'MarkerColor',colors(i,:),...
        'MarkerStyle','*','MarkerSize',10,'Notch','on','LineWidth',1);
-       xticklabels(FARMACI{i}); set(hbx,'Color','white'); grid on 
+       xticklabels(FARMACI{i}); set(hax(i),'Color','none'); grid on 
        if i>1
           hax(i).YAxis.Visible = 'off';
        end
@@ -23,8 +23,8 @@
  % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
    
- % Fix aspect ratio
-   hbx.Position(3:4) = [700, 420];
+ % Fix aspect ratio and background color
+   hbx.Position(3:4) = [700, 420]; set(hbx,'Color','none');
    
  % Save Figure
    save_fig (hbx,'../Figure/qualita-colorful')
