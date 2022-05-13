@@ -78,7 +78,9 @@ jobs:
             pip3 install imagehash
             mv Figure NEW
             mkdir failed
-            python3 diffimg.py | tee failed/vfail.txt
+            mkdir failed/NEW
+            mkdir failed/REF
+            python3 diffimg.py | tee failed/vtest.txt
       # Upload all the new and old figures: human-eye test
       - name: Upload old and new artifacts for human check
         uses: actions/upload-artifact@master
