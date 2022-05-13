@@ -46,10 +46,11 @@ jobs:
           repository: bellomia/MATVERSE
           path: MAT
           submodules: recursive
-      - name: Retrieve GHOSTSCRIPT
-        run : | # External dependency for export_figure
+      - name: Retrieve GHOSTSCRIPT and PDFTOPS
+        run : | # External dependencies for export_figure
           sudo apt-get update
           sudo apt-get install ghostscript -y
+          sudo apt-get install poppler-utils -y
           cd $GITHUB_WORKSPACE
       # Run all MATLAB scripts in the appropriate order
       - name: Run all scripts

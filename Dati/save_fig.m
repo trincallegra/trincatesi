@@ -11,9 +11,10 @@ function save_fig(fig,name,native)
     else
         try % TRY WITH EXPORT-FIG from the MATVERSE
             % >https://github.com/bellomia/MATVERSE
-            matverse.enter;try;fig2svg([name,'.svg'],fig);end
+            matverse.enter;
             export_fig(fig,name,'-transparent','-pdf','-eps' )
             export_fig(fig,name,'-transparent','-png','-r600')
+            try fig2svg([name,'.svg'],fig); end % last chance
         catch
             % EXPORT-FIG NOT FOUND (OR GIVES ERROR)
             % >fall back to native exportgraphics()
