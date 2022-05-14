@@ -1,6 +1,6 @@
 %% FACTORS INFLUENCING GLOBAL SATISFACTION
  % Load Data
-   load WRANGLED.mat
+   load TIDY
    
  % Setup Colorscheme
    colors = lines(9); % provvisorio in attesa upgrade palette()
@@ -12,7 +12,7 @@
               'necessità di farmaci rescue','impegno infermieristico',...
               'soddisfazione dei genitori','soddisfazione del bambino'};
           
-% Handle multiple answers: count as multiple people!
+ % Handle multiple answers: count as multiple people!
    array = cellfun(@transpose,DATA.INFLUENZASODDISFAZIONE,...
                                    'UniformOutput',false);
    array = cell2mat(array); % > unique column :)

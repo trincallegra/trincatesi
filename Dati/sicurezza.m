@@ -1,6 +1,6 @@
 %% COMPARE SAFETY PERCEPTION FOR THE FOUR DRUGS
  % Load Data
-   load WRANGLED.mat
+   load TIDY
   
  % Safety Axis: setup categorical ordering
    safety_order = {'N/A','per niente','poco','molto'};

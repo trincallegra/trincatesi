@@ -1,6 +1,6 @@
 %% STRATIFY ANALYSIS ALONG EXPERIENCE CATEGORICAL AXIS
  % Load Data
-   load WRANGLED.mat
+   load TIDY
    
  % Setup Colorscheme
    color_order = palette(length(FARMACI));

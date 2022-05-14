@@ -1,6 +1,6 @@
 %% ANALYSIS OF THE INFLUENCE OF ADVERSE EFFECTS
  % Load Data
-   load WRANGLED.mat
+   load TIDY
     
  % Setup Colorscheme
    colors = lines(10); % provvisorio in attesa upgrade palette()

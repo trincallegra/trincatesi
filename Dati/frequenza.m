@@ -1,6 +1,6 @@
 %% DISTRIBUTION OF EXPERIENCE AND SENIORITY
  % Load Data
-   load WRANGLED.mat
+   load TIDY
     
  % Setup Colorscheme
    colors = palette(4);

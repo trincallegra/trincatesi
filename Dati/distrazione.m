@@ -1,6 +1,6 @@
 %% DISTRIBUTION OF MISDIRECTION TECHNIQUES
  % Load Data
-   load WRANGLED.mat
+   load TIDY
    
  % Setup Ordering
    order = {'Per niente','Abbastanza','Molto','Moltissimo'};

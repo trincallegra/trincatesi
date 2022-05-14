@@ -1,6 +1,6 @@
 %% DISTRIBUTION OF RESCUE-DRUG SOMMINISTRATION
  % Load Data
-   load WRANGLED.mat
+   load TIDY
     
  % Setup Colorscheme
    colors = palette(length(FARMACI));

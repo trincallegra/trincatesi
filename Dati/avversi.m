@@ -1,6 +1,6 @@
 %% DIFFERENTIAL INCIDENCE OF ADVERSE EFFECTS
  % Load Data
-   load WRANGLED.mat
+   load TIDY
    
  % Setup Colorscheme
    colors = palette(length(FARMACI));

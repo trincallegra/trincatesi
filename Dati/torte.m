@@ -1,7 +1,7 @@
 %% DRAFT... 
 
  % Load Data
-   load WRANGLED.mat
+   load TIDY
   
    labels = {'EV','IN','OS+IN','IM'};
    slices = categorical(DATA.VIADISOMMINISTRAZIONE,[1 2 3 4],labels);

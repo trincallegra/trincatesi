@@ -1,6 +1,6 @@
 %% COMPARE QUALITY PERCEPTION FOR THE FOUR DRUGS
  % Load Data
-   load WRANGLED.mat
+   load TIDY
     
  % Setup Colorscheme
    colors = palette(length(FARMACI));
