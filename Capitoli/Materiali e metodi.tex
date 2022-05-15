@@ -219,10 +219,17 @@ Sono stati, inoltre, eseguiti i seguenti test d'ipotesi:
     
 \end{itemize}
 
-\`E stato considerato statisticamente significativo un p-value inferiore a 0.05.\\
+\`E stato considerato statisticamente significativo un p-value inferiore a 0.05.
 
-Oltre a ciò, anche i notched boxplot risultano degli strumenti utili al fine di visualizzare graficamente eventuali differenze statisticamente significative (con p-value < 0.05) tra mediane di gruppi diversi. Infatti, nel caso in cui i notch di due boxplot a confronto non si sovrappongano, come nell'esempio rappresentato nella figura, si può affermare con il 95$\%$ di confidenza che sussiste una differenza significativa tra le due mediane. 
-Gli estremi superiore ed inferiore del notch corrispondono convenzionalmente al valore della $ \mathrm{mediana} \pm {1.57 \mathrm{IQR}}/{\sqrt{n}} $, dove $n$ è la dimensione del campione e $\mathrm{IQR}$ è l'\emph{Interquartile Range} o lo scarto interquartile, ovvero la differenza tra il terzo ed il primo quartile \cite{McGill1978}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Figure/esempionotch.pdf}
+    \caption{Esempio di due notched boxplot, le cui mediane hanno una differenza statisticamente significativa.}
+    \label{fig:notch}
+\end{figure}
+
+Oltre a ciò, anche i notched boxplot risultano degli strumenti utili al fine di visualizzare graficamente eventuali differenze statisticamente significative (con p-value < 0.05) tra mediane di gruppi diversi. Infatti, nel caso in cui i notch di due boxplot a confronto non si sovrappongano, come nell'esempio rappresentato nella figura \ref{fig:notch}, si può affermare con il 95$\%$ di confidenza che sussiste una differenza significativa tra le due mediane. 
+Gli estremi superiore ed inferiore del notch corrispondono convenzionalmente al valore della mediana $\pm {1.57 \mathrm{IQR}}/{\sqrt{n}} $, dove $n$ è la dimensione del campione e $\mathrm{IQR}$ è l'\emph{Interquartile Range} o lo scarto interquartile, ovvero la differenza tra il terzo ed il primo quartile \cite{McGill1978}.
 
 
 

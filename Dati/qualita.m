@@ -1,12 +1,9 @@
 %% COMPARE QUALITY PERCEPTION FOR THE FOUR DRUGS
  % Load Data
-   clear
    load TIDY
-    
  % Setup Colorscheme
    colors = palette(length(FARMACI));
-   
-%% Comparison of boxplots along experience order
+%% Comparison of boxplots for the four drugs
  % Build the boxplots one by one
    hbx = figure('Name','MultiBoxplot');
    for i = 1:length(FARMACI)
@@ -20,22 +17,18 @@
           hax(i).YAxis.Visible = 'off';
        end
    end
-   
  % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
-   
  % Fix aspect ratio and background color
    hbx.Position(3:4) = [700, 420]; set(hbx,'Color','none');
-   
  % Save Figure
-   save_fig (hbx,'../Figure/qualita-colorful')
+   save_fig(hbx,'../Figure/qualita-colorful')
    
 %% Explicit hypothesis testing
  % Build the suitable data structure for multiple comparison tests
    for i = 1:length(FARMACI)
        QUALITY_TABLE(:,i) = DATA.(LABEL{i+4});
    end
-   
  % Kruskal-Wallis global test and downstream Bonferroni and Šidák tests
    [global_p_value,~,stats] = kruskalwallis(QUALITY_TABLE,FARMACI,'off');
    bonferroni = multcompare(stats,'CType','bonferroni');
