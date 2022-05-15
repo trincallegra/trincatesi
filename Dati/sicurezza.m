@@ -61,7 +61,6 @@
        end
    end
 
-   
  % Normalize heights
    linkaxes([hax(1),hax(2),hax(3),hax(4)],'y');
    
@@ -69,4 +68,4 @@
    hbx.Position(3:4) = [700, 420]; set(hbx,'Color','none');
    
  % Save Figure
-   save_fig (hbx,'../Figure/sicurtezza-boxplot')
+   save_fig(hbx,'../Figure/sicurezza-boxplot')
