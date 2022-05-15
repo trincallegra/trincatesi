@@ -1,5 +1,6 @@
 %% COMPARE QUALITY PERCEPTION FOR THE FOUR DRUGS
  % Load Data
+   clear
    load TIDY
     
  % Setup Colorscheme
@@ -28,3 +29,22 @@
    
  % Save Figure
    save_fig (hbx,'../Figure/qualita-colorful')
+   
+%% Explicit hypothesis testing
+ % Build the suitable data structure for multiple comparison tests
+   for i = 1:length(FARMACI)
+       QUALITY_TABLE(:,i) = DATA.(LABEL{i+4});
+   end
+   
+ % Kruskal-Wallis global test and downstream Bonferroni and Šidák tests
+   [global_p_value,~,stats] = kruskalwallis(QUALITY_TABLE,FARMACI,'off');
+   bonferroni = multcompare(stats,'CType','bonferroni');
+   dunn_sidak = multcompare(stats,'CType','dunn-sidak');
+   groupA = bonferroni(:,1); groupB = bonferroni(:,2);
+   report = [groupA,groupB,bonferroni(:,end),dunn_sidak(:,end)];
+   report = array2table(report,'VariableNames',...
+       {'Group A','Group B','Bonferroni p-value','Šidák p-value'});
+   report.('Group A') = categorical(report.('Group A'),[1,2,3,4],FARMACI); 
+   report.('Group B') = categorical(report.('Group B'),[1,2,3,4],FARMACI);
+   fprintf('\n\nGlobal Kruskal-Wallis p-value: %e\n\n',global_p_value); 
+   disp(report); % display to screen detailed report of pair-wise tests

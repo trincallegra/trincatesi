@@ -13,7 +13,7 @@
 
    for i = 1:length(FARMACI)
        % Handle multiple answers: count as multiple people!
-         array = cellfun(@transpose,DATA.(LABEL{9+i}),...
+         array = cellfun(@transpose,DATA.(LABEL{i+9}),...
                                'UniformOutput',false);
          array = cell2mat(array); % > unique column :)
        % Build the histograms
