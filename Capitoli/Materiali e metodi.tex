@@ -204,4 +204,26 @@ L'indagine è stata svolta in modo anonimo tramite una piattaforma web di Google
 
 \section{Analisi Statistica}
 
-%\lipsum[2]
+Le analisi statistiche e le rappresentazioni grafiche sono state realizzate utilizzando la piattaforma \textsc{MATLAB v9.9}, complementata dallo \emph{Statistical and Machine Learning Toolbox v12.0}. I dati sono stati statisticamente descritti sia come numeri, percentuali, mediane con incluse le differenze interquartile, sia come raffigurazioni grafiche quali notched boxplot, istogrammi e diagrammi circolari, al fine di fornire una lettura dei dati quanto più possibilmente appropriata al quesito e di immediata interpretazione. 
+
+Sono stati, inoltre, eseguiti i seguenti test d'ipotesi: 
+\begin{itemize}
+    \item il test di Kruskal-Wallis: è un metodo non parametrico che confronta le mediane di due o più gruppi per determinare se i campioni provengono dalla stessa popolazione (o da popolazioni diverse con la stessa distribuzione).
+    \item la correzione di Bonferroni e la correzione di Dunn-Šidák: sono test utilizzati per eseguire confronti multipli tra gruppi di dati. Nonostante il primo sia un metodo più conservativo, ovvero ha meno probabilità di rigettare un'ipotesi nulla falsa, nelle nostre analisi hanno entrambi portato alle stesse conclusioni. 
+    
+    %il secondo è valutato universalmente più potente, ovvero ha una maggior probabilità di rigettare un'ipotesi nulla falsa. 
+    
+    %test conservativo = non vuole rifiutare l'ipotesi nulla o cambiare lo status quo, alta probabilità di errori di tipo II (falso negativo)
+    %powerful = quando non è conservativo (1 - beta) beta = probabilità degli errori di tipo II
+    %significatività = probabilità di errori di tipo I = falsi positivi
+    
+\end{itemize}
+
+\`E stato considerato statisticamente significativo un p-value inferiore a 0.05.\\
+
+Oltre a ciò, anche i notched boxplot risultano degli strumenti utili al fine di visualizzare graficamente eventuali differenze statisticamente significative (con p-value < 0.05) tra mediane di gruppi diversi. Infatti, nel caso in cui i notch di due boxplot a confronto non si sovrappongano, come nell'esempio rappresentato nella figura, si può affermare con il 95$\%$ di confidenza che sussiste una differenza significativa tra le due mediane. 
+Gli estremi superiore ed inferiore del notch corrispondono convenzionalmente al valore della $ \mathrm{mediana} \pm {1.57 \mathrm{IQR}}/{\sqrt{n}} $, dove $n$ è la dimensione del campione e $\mathrm{IQR}$ è l'\emph{Interquartile Range} o lo scarto interquartile, ovvero la differenza tra il terzo ed il primo quartile \cite{McGill1978}.
+
+
+
+
