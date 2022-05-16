@@ -204,12 +204,11 @@ L'indagine è stata svolta in modo anonimo tramite una piattaforma web di Google
 
 \section{Analisi Statistica}
 
-Le analisi statistiche e le rappresentazioni grafiche sono state realizzate utilizzando la piattaforma \textsc{MATLAB v9.9}, complementata dallo \emph{Statistical and Machine Learning Toolbox v12.0}. I dati sono stati statisticamente descritti sia come numeri, percentuali, mediane con incluse le differenze interquartile, sia come raffigurazioni grafiche quali notched boxplot, istogrammi e diagrammi circolari, al fine di fornire una lettura dei dati quanto più possibilmente appropriata al quesito e di immediata interpretazione. 
+Le analisi statistiche e le rappresentazioni grafiche sono state realizzate utilizzando la piattaforma \textsc{Matlab}\textsuperscript{\tiny\sffamily\textregistered}\!\,v9.9, complementata dallo \textsc{Statistics and Machine Learning Toolbox} v12.0. I dati sono stati statisticamente descritti sia come numeri, percentuali, mediane con incluse le differenze interquartile, sia con classiche raffigurazioni grafiche quali istogrammi e diagrammi circolari, al fine di fornire una lettura dei dati quanto più possibilmente appropriata al quesito e di immediata interpretazione. Sono stati, inoltre, eseguiti i seguenti test d'ipotesi:
 
-Sono stati, inoltre, eseguiti i seguenti test d'ipotesi: 
 \begin{itemize}
-    \item il test di Kruskal-Wallis: è un metodo non parametrico che confronta le mediane di due o più gruppi per determinare se i campioni provengono dalla stessa popolazione (o da popolazioni diverse con la stessa distribuzione).
-    \item la correzione di Bonferroni e la correzione di Dunn-Šidák: sono test utilizzati per eseguire confronti multipli tra gruppi di dati. Nonostante il primo sia un metodo più conservativo, ovvero ha meno probabilità di rigettare un'ipotesi nulla falsa, nelle nostre analisi hanno entrambi portato alle stesse conclusioni. 
+    \item il test di Kruskal--Wallis, un metodo non parametrico che confronta le mediane di due o più gruppi per determinare se i campioni provengono dalla stessa popolazione (o da popolazioni diverse con la stessa distribuzione).
+    \item la correzione di Bonferroni e la correzione di Dunn--Šidák, utili per eseguire confronti multipli tra gruppi di dati \cite{review_multiple_comparisons}. Nonostante il primo sia un metodo notoriamente più conservativo, avendo probabilità inferiore di rigettare un'ipotesi nulla falsa \cite{Farewell_Bonferroni,Rejecting_Bonferroni}, nelle nostre analisi hanno entrambi portato alle stesse conclusioni. 
     
     %il secondo è valutato universalmente più potente, ovvero ha una maggior probabilità di rigettare un'ipotesi nulla falsa. 
     
@@ -219,17 +218,22 @@ Sono stati, inoltre, eseguiti i seguenti test d'ipotesi:
     
 \end{itemize}
 
-\`E stato considerato statisticamente significativo un p-value inferiore a 0.05.
+\`E stato considerato statisticamente significativo un p--value inferiore a $\alpha = 0.05$.
+
+\bigskip
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{Figure/esempionotch.pdf}
-    \caption{Esempio di due notched boxplot, le cui mediane hanno una differenza statisticamente significativa.}
+    \includegraphics[width=0.9\textwidth]{Figure/esempionotch.pdf}
+    \caption{Esempio di due notched boxplot, le cui mediane hanno una differenza statisticamente significativa. Dettagli nel testo.}
     \label{fig:notch}
 \end{figure}
 
-Oltre a ciò, anche i notched boxplot risultano degli strumenti utili al fine di visualizzare graficamente eventuali differenze statisticamente significative (con p-value < 0.05) tra mediane di gruppi diversi. Infatti, nel caso in cui i notch di due boxplot a confronto non si sovrappongano, come nell'esempio rappresentato nella figura \ref{fig:notch}, si può affermare con il 95$\%$ di confidenza che sussiste una differenza significativa tra le due mediane. 
-Gli estremi superiore ed inferiore del notch corrispondono convenzionalmente al valore della mediana $\pm {1.57 \mathrm{IQR}}/{\sqrt{n}} $, dove $n$ è la dimensione del campione e $\mathrm{IQR}$ è l'\emph{Interquartile Range} o lo scarto interquartile, ovvero la differenza tra il terzo ed il primo quartile \cite{McGill1978}.
+Per una visualizzazione più immediata delle inferenze statistiche sono stati costruiti anche dei \emph{notched boxplot} \cite{McGill1978}, strumenti utili al fine di graficare eventuali differenze statisticamente significative (con p--value $< \alpha$) tra mediane di gruppi diversi. Infatti, nel caso in cui i \emph{notch} di due boxplot a confronto non si sovrappongano, come nell'esempio rappresentato in figura \ref{fig:notch}, si può affermare con il livello di confidenza $(1-\alpha)$ che sussiste una differenza significativa tra le due mediane. 
+
+Gli estremi superiore ed inferiore del notch corrispondono, per la confidenza convenzionale del 95$\%$, al valore della mediana~$\pm {1.57 \times \mathrm{IQR}}/{\sqrt{n}} $, dove $n$ è la dimensione del campione e $\mathrm{IQR}$ è l'\textsl{Interquartile Range} o lo scarto interquartile, ovvero la differenza tra il terzo ed il primo quartile \cite{McGill1978}.\\
+
+Per garantire la completa riprodicibilità dei risultati presentati in appendice \ref{appendix:code} sono riportati tutti i codici \textsc{Matlab}\textsuperscript{\tiny\sffamily\textregistered} utilizzati per generare le figure e operare i test d'ipotesi. Alcuni dei comandi adoperati, segnalati in {\mlttfamily\color{xkcdLilac}\bfseries\itshape grassetto--corsivo--lilla}, non sono nativi del software base, ma importati dal già citato toolbox o da pacchetti esterni\footnote{In particolare, {\mlttfamily\bfseries\itshape\color{xkcdLilac}kruskalwallis()} e {\mlttfamily\bfseries\itshape\color{xkcdLilac}multcompare()} sono inclusi nello \textsc{statistics and machine learning toolbox}, mentre {\mlttfamily\bfseries\itshape\color{xkcdLilac}export\_fig()}, {\mlttfamily\bfseries\itshape\color{xkcdLilac}fig2svg()} e {\mlttfamily\bfseries\itshape\color{xkcdLilac}hex2rgb()} sono resi disponibili, sotto licenza \emph{open--source}, dalla multilibreria \textsc{the matverse}: \url{https://github.com/bellomia/MATVERSE} }. In altri casi ancora si tratta di funzioni speciali definite appositamente dall'autrice: queste ultime sono integralmente riportate in sezione \ref{code:subroutines}.
 
 
 

@@ -1,4 +1,4 @@
-%% IMPORT AND WRANGLE RAW DATA
+%% IMPORT AND WRANGLING OF RAW DATA
  % Number of Queries
    nQ = 32;
 
