@@ -1,4 +1,4 @@
-%% DRAFT... 
+%% PEDESTRIAN SCRIPT TO GENERATE *DRAFTS* OF PIE-CHARTS 
 
  % Load Data
    load TIDY
@@ -24,10 +24,14 @@
           '#FFBD35'] ; 
    colormap(hex2rgb(hex));
    
-   %colormap(palette(4));
    
    labels = {'sempre','solo in pazienti fragili'};
    slices = categorical(DATA.ACCESSOVENOSO,[0,1],labels);
    
    p = pie(slices);
+   
+   slices = [25 2 15 9];
+   p = pie(slices,[],FARMACI);
+   
+   colormap(palette(4));
   
