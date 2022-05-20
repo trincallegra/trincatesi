@@ -34,6 +34,11 @@
        SAFETY_TABLE(:,i) = DATA.(LABEL{i+24});
    end
    
+ % Map NRS to a equally spaced scale... [1, 6, 10] --> [0, 1, 2]
+   SAFETY_TABLE(SAFETY_TABLE == 1)  = 0;
+   SAFETY_TABLE(SAFETY_TABLE == 6)  = 1;
+   SAFETY_TABLE(SAFETY_TABLE == 10) = 2;
+   
  % Kruskal-Wallis global test and downstream Bonferroni and Šidák tests
    [global_p_value,~,stats] = kruskalwallis(SAFETY_TABLE,FARMACI,'off');
    bonferroni = multcompare(stats,'CType','bonferroni');
