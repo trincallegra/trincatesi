@@ -14,6 +14,17 @@ L'intervista è stata inviata a 60 infermieri, di cui 9 non hanno risposto all'i
 \vfill
 
 \newpage
+Come si può osservare nella figura \ref{fig:preferenze}, complessivamente il propofol è stato l'agente farmacologico più scelto dagli infermieri per le sedazioni procedurali pediatriche, infatti 25 persone l'hanno indicato come sedativo favorito, 15 hanno scelto il midazolam, 9 la dexmedetomidina e solo 2 la ketamina. 
+
+\begin{figure}[!ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Figure/preferenze.pdf}
+    \caption{Farmaci preferiti dagli infermieri per le sedazioni procedurali pediatriche.}
+    \label{fig:preferenze}
+\end{figure}
+
+%\vfill
+
 
 \section{Percezione complessiva della qualità della sedazione}
 Gli infermieri intervistati hanno dato una valutazione elevata a quasi tutti i farmaci testati: in particolare 32 partecipanti hanno attribuito un punteggio\footnote{Il grado di soddisfazione è stato misurato secondo scala \texttt{NRS}, da 0 a 10.} $\geq8$ alla qualità della sedazione con il propofol, 26 a quella con il midazolam, 23 a quella con la dexmedetomidina. I livelli di soddisfazione più bassi sono stati riscontrati con l'utilizzo della ketamina, infatti solo 8 persone hanno assegnato un punteggio $\geq8$. Nella figura \ref{fig:qualitascolorful} si possono osservare i valori della mediana, del primo e del terzo quartile relativi al livello di soddisfazione percepito dal personale infermieristico: graficamente si evince che la ketamina presenta un valore atteso significativamente inferiore al propofol, al midazolam ed alla dexmedetomidina, laddove quest'ultimi tre hanno ottenuto lo stesso risultato. Eseguendo poi il test di Kruskal-Wallis e successivamente le correzioni post test di Bonferroni e Dunn--Šidák viene dapprima rigettata, con un p--value pari a $4.34\times10^{-9}$, l'ipotesi nulla tale per cui i dati associati alla soddisfazione degli infermieri per i quattro farmaci appartengano alla stessa popolazione e viene, in secondo luogo, confermata la differenza statisticamente significativa nel confronto tra le mediane della ketamina e quelle degli altri tre sedativi, i valori di p--value sono riportati nella tabella \ref{tab:qualitatest}. 
@@ -22,20 +33,19 @@ Gli infermieri intervistati hanno dato una valutazione elevata a quasi tutti i f
 
 \vfill
 
-\begin{figure}[ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.95\textwidth]{Figure/qualita-colorful.pdf}
     \caption{Livello di soddisfazione percepito dagli infermieri, misurato secondo scala \texttt{NRS}, a confronto tra i quattro agenti farmacologici. Generata dal codice \ref{code:quality-global}.}
     \label{fig:qualitascolorful}
 \end{figure}
 
-\vfill
+\vfill\vfill
 
-\newpage
 
 \bgroup
 \def\arraystretch{1.5}
-\begin{table}[t]
+\begin{table}[!h]
     \centering
     \begin{tabular}{c|c|c|c}
          Gruppo A & Gruppo B & Bonferroni p--value & Dunn--Šidák p--value\\ \hline
@@ -51,6 +61,8 @@ Gli infermieri intervistati hanno dato una valutazione elevata a quasi tutti i f
     \label{tab:qualitatest}
 \end{table}
 \egroup
+
+\vfill
 
 \begin{comment}
 
@@ -71,15 +83,14 @@ Gli infermieri intervistati hanno dato una valutazione elevata a quasi tutti i f
 \egroup
 \end{comment}
 
-\newpage
 
 \section{Stratificazione sugli anni di esperienza e sul numero di sedazioni mensili}
 
 Stratificando il grado di soddisfazione percepito dal personale infermieristico con gli anni di esperienza compiuti nel campo delle sedazioni procedurali e con il numero di sedazioni mensilmente effettuate non risultano differenze statisticamente significative, laddove i notch non si sovrappongono, come graficamente visibile nelle figure \ref{fig:qualitaesperienza} e \ref {fig:qualitafrequenza}.
 
+\newpage
 \vfill
-
-\begin{figure}[!ht]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\textwidth]{Figure/qualita-strat-esperienza.pdf}
     \caption{Livello di soddisfazione, associato ai diversi agenti farmacologici, stratificato sugli anni di esperienza dei partecipanti nell'ambito delle sedazioni procedurali. Generata dal codice \ref{code:quality-strati}.}
@@ -87,19 +98,58 @@ Stratificando il grado di soddisfazione percepito dal personale infermieristico 
 \end{figure}
 
 \vfill
-
-\newpage
-
-\begin{figure}[!ht]
+\begin{figure}[!h]
     \centering
     \includegraphics[width=0.95\textwidth]{Figure/qualita-strat-frequenza.pdf}
     \caption{Livello di soddisfazione, associato ai diversi agenti farmacologici, stratificato sul numero di sedazioni mensilmente assistite dagli intervistati. Generata dal codice \ref{code:quality-strati}.}
     \label{fig:qualitafrequenza}
 \end{figure}
 
+\vfill
+\newpage
+
+\vfill
 \section{Grado di sicurezza percepito ed effetti avversi}
 
-Il livello di sicurezza percepito durante la sedazione è risultato elevato per tutti i farmaci testati, senza alcuna differenza statisticamente significativa {\color{red}{(Kruskal--Wallis p--value 0.048)\footnote{\color{red}vedi mail.}}}. I risultati sono rappresentati nella figura \ref{fig:sicurezza1} e i valori\footnote{I dati numerici sono ottenuti attribuendo un valore pari ad 1 alla risposta \emph{per niente}, pari a 6 a \emph{poco}, pari a 10 a \emph{molto}.} di mediana e IQR descritti nella tabella \ref{tab:sicurezzased}.
+Il livello di sicurezza percepito durante la sedazione è risultato complessivamente elevato per tutti i farmaci testati, con una differenza statisticamente poco significativa tra i quattro gruppi: il test di Kruskal-Wallis ha restituito un valore di p--value pari a 0.04. In particolare, effettuando la correzione di Bonferroni e la correzione di Dunn--Šidák, quindi confrontando le mediane dei dati relativi alla sicurezza percepita dagli infermieri per i quattro farmaci, è emersa una superiorità del midazolam rispetto alla dexmedetomidina. Tuttavia, tale differenza si può considerare statisticamente poco significativa, in quanto i valori dei p--value risultanti dall'analisi statistica si trovano appena al di sotto della soglia $\alpha$ di significatività. I risultati ottenuti\footnote{I dati statistici sono stati ricavati attribuendo un valore pari ad 1 alla risposta \emph{per niente}, pari a 6 a \emph{poco}, pari a 10 a \emph{molto}.} sono rappresentati nella figura \ref{fig:sicurezza1} e i valori di p--value per ogni test effettuato sono riportati nella tabella \ref{tab:sicurezzatest}.
+
+\vfill
+
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=1\textwidth]{Figure/sicurezza-istogrammi.pdf}
+    \caption{Risposte alla domanda "Quanto ti senti sicuro durante la sedazione con i seguenti farmaci?". Generata dal codice \ref{code:safety}.}
+    \label{fig:sicurezza1}
+\end{figure}
+
+\vfill
+
+\newpage
+
+\bgroup
+\def\arraystretch{1.5}
+\begin{table}[!h]
+    \centering
+    \begin{tabular}{c|c|c|c}
+         Gruppo A & Gruppo B & Bonferroni p--value & Dunn--Šidák p--value\\ \hline
+       Propofol & Ketamina & 1.0 & $9.9 \times 10^{-1}$ \\
+       Propofol & Midazolam  & $2.9 \times 10^{-1}$ & $2.6 \times 10^{-1}$\\
+       Propofol & Dexmedetomidina & 1.0 & $9.8 \times 10^{-1}$\\
+       Ketamina & Midazolam & $1.7\times10^{-1}$ & $1.5\times10^{-1}$\\
+       Ketamina & Dexmedetomidina & 1.0 & $9.9\times10^{-1}$\\
+       Midazolam & Dexmedetomidina & $4.9 \times 10^{-2}$ & $4.8 \times 10^{-2}$\\
+       
+    \end{tabular}
+    \caption{p--value ottenuti tramite i test di Bonferroni e di Dunn--Šidák: confronto a coppie dei quattro farmaci per valutarne il profilo di sicurezza come percepito dagli infermieri. Generata dal codice.}
+    \label{tab:sicurezzatest}
+\end{table}
+\egroup
+
+\vfill
+
+\begin{comment}
+
+di mediana e IQR descritti nella tabella \ref{tab:sicurezzased}.
 
 \vfill
 
@@ -119,17 +169,9 @@ Il livello di sicurezza percepito durante la sedazione è risultato elevato per 
     \label{tab:sicurezzased}
 \end{table}
 \egroup
+\end{comment}
 
 \vfill
-
-\newpage
-
-\begin{figure}[!h]
-    \centering
-    \includegraphics[width=1\textwidth]{Figure/sicurezza-istogrammi.pdf}
-    \caption{Risposte alla domanda "Quanto ti senti sicuro durante la sedazione con i seguenti farmaci?". Generata dal codice \ref{code:safety}.}
-    \label{fig:sicurezza1}
-\end{figure}
 
 
 \begin{figure}[!h]
@@ -139,7 +181,8 @@ Il livello di sicurezza percepito durante la sedazione è risultato elevato per 
     \label{fig:sicurezza}
 \end{figure}
 
-\newpage
+\vfill
+
 Le reazioni avverse più comunemente osservate dal personale intervistato per i quattro farmaci valutati nello studio sono rappresentate nella figura \ref{fig:sicurezza}. Secondo il parere infermieristico, la sola sonnolenza è più frequentemente associata alla sedazione con il propofol; oltre ad essa l'irritabilità, l'iperattività o l'irrequietezza sono spesso correlate all'utilizzo del midazolam e della dexmedetomidina; invece la ketamina presenta gli effetti collaterali più spiacevoli: allucinazioni, nausea e vomito, oltre nuovamente ad iperattività, irrequietezza ed irritabilità.
 
 \begin{comment}
@@ -171,14 +214,15 @@ Le reazioni avverse più comunemente osservate dal personale intervistato per i 
 
 \end{comment}
 
-Inoltre, la necessità di utilizzare farmaci \emph{rescue}, quali antiemetici per la nausea ed il vomito, flumazenil per il \emph{midazolam-induced paradox phenomenon} o infusione di soluzioni contenenti glucosio per evitare eventuali ipoglicemie, soprattutto nei pazienti più piccoli, in caso di tempi di risveglio prolungati, è stata associata da 40 infermieri alla sedazione con ketamina, da 16 a quella con midazolam e da 5 a quella con propofol, come evidenziato nella figura \ref{fig:rescue}.
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.85\textwidth]{Figure/rescue.pdf}
+    \includegraphics[width=0.9\textwidth]{Figure/rescue.pdf}
     \caption{Risposte degli infermieri alla domanda "Per quali di queste sedazioni è spesso necessario somministrare al risveglio un farmaco \emph{rescue} o sintomatico?".\\ Generata dal codice \ref{code:rescue}.}
     \label{fig:rescue}
 \end{figure}
+
+Inoltre, la necessità di utilizzare farmaci \emph{rescue}, quali antiemetici per la nausea ed il vomito, flumazenil per il \emph{midazolam-induced paradox phenomenon} o infusione di soluzioni contenenti glucosio per evitare eventuali ipoglicemie, soprattutto nei pazienti più piccoli, in caso di tempi di risveglio prolungati, è stata associata da 40 infermieri alla sedazione con ketamina, da 16 a quella con midazolam e da 5 a quella con propofol, come evidenziato nella figura \ref{fig:rescue}.
 
 
 \section{Elementi che influenzano il grado di soddisfazione}
@@ -187,18 +231,19 @@ Al fine di comprendere al meglio i motivi alla base delle risposte riportate dag
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.95\textwidth]{Figure/soddisfazione-globale.eps}
+    \includegraphics[width=1\textwidth]{Figure/soddisfazione-globale.eps}
     \caption{Fattori che hanno influenzato il grado di soddisfazione complessivo degli infermieri. Generata dal codice \ref{code:satisfaction}.}
     \label{fig:soddglobale}
 \end{figure}
 
+\newpage
 Oltre a ciò, è stato domandato quanto l'incidenza dei possibili effetti collaterali pesi negativamente sul livello di soddisfazione derivato dalla scelta dei diversi sedativi ed analgesici: è emerso che l'insorgenza di distress respiratorio costituisce l'elemento che influisce maggiormente sul giudizio degli infermieri; mentre la manifestazione di nausea o vomito, vertigini, allucinazioni, iperattività od irritabilità esercita un'influenza moderata; infine, la presenza di sonnolenza, incoordinazione motoria, cefalea e alterazioni dell'appetito risulta meno rilevante ai fini del livello di soddisfazione globale percepito (cfr. fig. \ref{fig:influenzaeffetti} e tab. \ref{tab:effavv2}). 
 
 \vfill
 
 \begin{figure}[!ht]
     \centering
-    \includegraphics[width=0.85\textwidth]{Figure/influenza-effetti.pdf}
+    \includegraphics[width=1\textwidth]{Figure/influenza-effetti.pdf}
     \caption{Risposte alla domanda "Quanto i seguenti effetti collaterali riducono la tua soddisfazione in merito alla sedazione procedurale?".\\ Generata dal codice \ref{code:adverse-effects-perception}.}
     \label{fig:influenzaeffetti}
 \end{figure}
@@ -232,11 +277,11 @@ Oltre a ciò, è stato domandato quanto l'incidenza dei possibili effetti collat
 
 \section{Preferenze relative alle vie di somministrazione}
 
-Le vie di somministrazione favorite dagli infermieri sono, in ordine di preferenza: via endovenosa (scelta da 28 persone -- 55$\%$), via orale più intranasale (15 -- 29.5$\%$), via intranasale (7 -- 13.5$\%$) e via intramuscolare (1 -- 2$\%$). Inoltre, 40 infermieri (78.4$\%$) vorrebbero che un accesso venoso venisse posizionato abitualmente ed indiscriminatamente in tutti i bambini, mentre 11 (21.6$\%$) desiderano che sia inserito almeno nei casi più difficili, ad esempio nei pazienti con condizioni genetiche note, autismo, ritardo psicomotorio o un alto DIVA score\footnote{\emph{Difficult Intravenous Access score}: si tratta di un sistema di punteggio basato su criteri clinici facili da applicare, che permettono di predire la difficoltà di inserzione del catetere venoso periferico per ciascun paziente pediatrico \cite{Yen2008}.}. Nessun infermiere ha risposto che preferirebbe non venisse mai applicato il cateterismo venoso periferico. 
+Le vie di somministrazione favorite dagli infermieri sono, in ordine di preferenza: via endovenosa (scelta da 28 persone -- 55$\%$), via orale più intranasale (15 -- 29.5$\%$), via intranasale (7 -- 13.5$\%$) e via intramuscolare (1 -- 2$\%$). Inoltre, 40 infermieri (78.4$\%$) vorrebbero che un accesso venoso venisse posizionato abitualmente ed indiscriminatamente in tutti i bambini, mentre 11 (21.6$\%$) desiderano che sia inserito almeno nei casi più difficili, ad esempio nei pazienti con condizioni genetiche note, autismo, ritardo psicomotorio o un alto DIVA score. Nessun infermiere ha risposto che preferirebbe non venisse mai applicato il cateterismo venoso periferico. 
 
 \begin{figure}[!h]
     \centering
-    \includegraphics[width=0.85\textwidth]{Figure/sommicrosoftchiaro.pdf}
+    \includegraphics[width=1\textwidth]{Figure/sommicrosoftchiaro.pdf}
     \caption{Vie di somministrazione più apprezzate dagli infermieri per la sedazione procedurale e preferenze relative alla presenza o meno dell'accesso venoso.}
     \label{fig:viedisomm}
 \end{figure}
