@@ -1,5 +1,6 @@
 from distutils.log import error
 import os
+import sys
 import shutil
 import glob
 from PIL import Image
@@ -24,9 +25,9 @@ for file in picnames:
         shutil.move('REF/'+file,'failed/REF/'+file)
         flag = True
 
-import sys
-sys.tracebacklimit = 0
 if flag:
-    raise Exception("^^^ Some vtests have failed! ^^^")
+    print("^^^ Some vtests have failed! ^^^")
+    sys.exit(1)
 else:
     print("> All visual tests have been passed!")
+    sys.exit(0)
