@@ -7,7 +7,7 @@ L'intervista è stata inviata a 60 infermieri, di cui 9 non hanno risposto all'i
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{Figure/esperienzaVSfrequenza.pdf}
-    \caption{Anni di esperienza nell'ambito delle sedazioni procedurali e numero di sedazioni mensilmente assistite. Generata dal codice \ref{code:seniority-vs-experience}.}
+    \caption{Anni di esperienza nell'ambito delle sedazioni procedurali e numero di sedazioni mensilmente assistite.} %Generata dal codice \ref{code:seniority-vs-experience}.}
     \label{fig:esperienzavsfrequenza}
 \end{figure}
 
@@ -36,7 +36,7 @@ Gli infermieri intervistati hanno dato una valutazione elevata a quasi tutti i f
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.95\textwidth]{Figure/qualita-colorful.pdf}
-    \caption{Livello di soddisfazione percepito dagli infermieri, misurato secondo scala \texttt{NRS}, a confronto tra i quattro agenti farmacologici. Generata dal codice \ref{code:quality-global}.}
+    \caption{Livello di soddisfazione percepito dagli infermieri, misurato secondo scala \texttt{NRS}, a confronto tra i quattro agenti farmacologici.} %Generata dal codice \ref{code:quality-global}.}
     \label{fig:qualitascolorful}
 \end{figure}
 
@@ -49,15 +49,15 @@ Gli infermieri intervistati hanno dato una valutazione elevata a quasi tutti i f
     \centering
     \begin{tabular}{c|c|c|c}
          Gruppo A & Gruppo B & Bonferroni p--value & Dunn--Šidák p--value\\ \hline
-       Propofol & Ketamina & $1.7\times10^{-8}$ & $1.7\times10^{-8}$ \\
+       Propofol & Ketamina & $\mathbf{1.7\times10^{-8}}$ & $\mathbf{1.7\times10^{-8}}$ \\
        Propofol & Midazolam  & 1.0 & $9.7 \times 10^{-1}$\\
        Propofol & Dexmedetomidina & $6.0 \times 10^{-1}$ & $4.7 \times 10^{-1}$\\
-       Ketamina & Midazolam & $1.4\times10^{-6}$ & $1.4\times10^{-6}$\\
-       Ketamina & Dexmedetomidina & $3.3\times10^{-4}$ & $3.3\times10^{-4}$\\
+       Ketamina & Midazolam & $\mathbf{1.4\times10^{-6}}$ & $\mathbf{1.4\times10^{-6}}$\\
+       Ketamina & Dexmedetomidina & $\mathbf{3.3\times10^{-4}}$ & $\mathbf{3.3\times10^{-4}}$\\
        Midazolam & Dexmedetomidina & 1.0 & $9.3 \times 10^{-1}$\\
        
     \end{tabular}
-    \caption{p--value risultanti dal confronto tra le coppie dei quattro farmaci ottenuti tramite i test di Bonferroni e di Dunn--Šidák. Generata dal codice \ref{code:quality-global}.}
+    \caption{p--value risultanti dal confronto tra le coppie dei quattro farmaci ottenuti tramite i test di Bonferroni e di Dunn--Šidák.} %Generata dal codice \ref{code:quality-global}.}
     \label{tab:qualitatest}
 \end{table}
 \egroup
@@ -86,14 +86,19 @@ Gli infermieri intervistati hanno dato una valutazione elevata a quasi tutti i f
 
 \section{Stratificazione sugli anni di esperienza e sul numero di sedazioni mensili}
 
-Stratificando il grado di soddisfazione percepito dal personale infermieristico con gli anni di esperienza compiuti nel campo delle sedazioni procedurali e con il numero di sedazioni mensilmente effettuate non risultano differenze statisticamente significative, laddove i notch non si sovrappongono, come graficamente visibile nelle figure \ref{fig:qualitaesperienza} e \ref {fig:qualitafrequenza}.
+Stratificando il grado di soddisfazione percepito dal personale infermieristico sugli anni di esperienza compiuti nel campo delle sedazioni procedurali non risultano differenze statisticamente significative, dal momento che i notch si sovrappongono, come graficamente visibile nella figura \ref{fig:qualitaesperienza}. Invece, analizzando la stratificazione dei punteggi di soddisfazione relativi ai quattro farmaci sul numero di sedazioni mensilmente effettuate si osserva una differenza significativa tra le mediane, in particolare si nota che il voto associato al propofol aumenta con il numero di procedure assistite ogni mese dagli infermieri. Questo dato risulta graficamente evidente dalla non sovrapposizione dei notch nella figura \ref{fig:qualitafrequenza}. 
 
-\newpage
+%in particolare, gli infermieri che prendono parte a più di 20 sedazioni al mese risultano maggiormente soddisfatti delle sedazioni con il propofol rispetto a coloro che partecipano a un minor numero di sedazioni. Questo dato risulta graficamente evidente dalla non sovrapposizione dei relativi notch. 
+
+
+%si osserva un incremento della soddisfazione relativa alla sedazione con il propofol con il numero di sedazioni mensili. non risultano differenze statisticamente significative, laddove i notch non si sovrappongono, come graficamente visibile nelle figure \ref{fig:qualitaesperienza} e \ref {fig:qualitafrequenza}.
+
+
 \vfill
 \begin{figure}[ht]
     \centering
     \includegraphics[width=0.95\textwidth]{Figure/qualita-strat-esperienza.pdf}
-    \caption{Livello di soddisfazione, associato ai diversi agenti farmacologici, stratificato sugli anni di esperienza dei partecipanti nell'ambito delle sedazioni procedurali. Generata dal codice \ref{code:quality-strati}.}
+    \caption{Livello di soddisfazione, associato ai diversi agenti farmacologici, stratificato sugli anni di esperienza dei partecipanti nell'ambito delle sedazioni procedurali.} %Generata dal codice \ref{code:quality-strati}.}
     \label{fig:qualitaesperienza}
 \end{figure}
 
@@ -101,7 +106,7 @@ Stratificando il grado di soddisfazione percepito dal personale infermieristico 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.95\textwidth]{Figure/qualita-strat-frequenza.pdf}
-    \caption{Livello di soddisfazione, associato ai diversi agenti farmacologici, stratificato sul numero di sedazioni mensilmente assistite dagli intervistati. Generata dal codice \ref{code:quality-strati}.}
+    \caption{Livello di soddisfazione, associato ai diversi agenti farmacologici, stratificato sul numero di sedazioni mensilmente assistite dagli intervistati.} %Generata dal codice \ref{code:quality-strati}.}
     \label{fig:qualitafrequenza}
 \end{figure}
 
@@ -111,14 +116,14 @@ Stratificando il grado di soddisfazione percepito dal personale infermieristico 
 \vfill
 \section{Grado di sicurezza percepito ed effetti avversi}
 
-Il livello di sicurezza percepito durante la sedazione è risultato complessivamente elevato per tutti i farmaci testati, con una differenza statisticamente poco significativa tra i quattro gruppi: il test di Kruskal-Wallis ha restituito un valore di p--value pari a 0.04. In particolare, effettuando la correzione di Bonferroni e la correzione di Dunn--Šidák, quindi confrontando le mediane dei dati relativi alla sicurezza percepita dagli infermieri per i quattro farmaci, è emersa una superiorità del midazolam rispetto alla dexmedetomidina. Tuttavia, tale differenza si può considerare statisticamente poco significativa, in quanto i valori dei p--value risultanti dall'analisi statistica si trovano appena al di sotto della soglia $\alpha$ di significatività. I risultati ottenuti\footnote{I dati statistici sono stati ricavati attribuendo un valore pari ad 1 alla risposta \emph{per niente}, pari a 6 a \emph{poco}, pari a 10 a \emph{molto}.} sono rappresentati nella figura \ref{fig:sicurezza1} e i valori di p--value per ogni test effettuato sono riportati nella tabella \ref{tab:sicurezzatest}.
+Il livello di sicurezza percepito durante la sedazione è risultato complessivamente elevato per tutti i farmaci testati, con una differenza statisticamente poco significativa tra i quattro gruppi: il test di Kruskal-Wallis ha restituito un valore di p--value pari a 0.04. In particolare, effettuando la correzione di Bonferroni e la correzione di Dunn--Šidák, quindi, confrontando le mediane dei dati relativi alla sicurezza percepita dagli infermieri per i quattro farmaci, è emersa una superiorità del midazolam rispetto alla dexmedetomidina. Tuttavia, tale differenza si può considerare statisticamente poco significativa, in quanto i valori dei p--value si trovano appena al di sotto della soglia $\alpha$ di significatività. I risultati ottenuti\footnote{I dati statistici sono stati ricavati attribuendo un valore pari a 0 alla risposta \emph{per niente}, pari a 1 a \emph{poco}, pari a 2 a \emph{molto}.} sono rappresentati nella figura \ref{fig:sicurezza1} e i valori di p--value per ogni test effettuato sono riportati nella tabella \ref{tab:sicurezzatest}.
 
 \vfill
 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{Figure/sicurezza-istogrammi.pdf}
-    \caption{Risposte alla domanda "Quanto ti senti sicuro durante la sedazione con i seguenti farmaci?". Generata dal codice \ref{code:safety}.}
+    \caption{Risposte alla domanda "Quanto ti senti sicuro durante la sedazione con i seguenti farmaci?".} %Generata dal codice \ref{code:safety}.}
     \label{fig:sicurezza1}
 \end{figure}
 
@@ -137,10 +142,10 @@ Il livello di sicurezza percepito durante la sedazione è risultato complessivam
        Propofol & Dexmedetomidina & 1.0 & $9.8 \times 10^{-1}$\\
        Ketamina & Midazolam & $1.7\times10^{-1}$ & $1.5\times10^{-1}$\\
        Ketamina & Dexmedetomidina & 1.0 & $9.9\times10^{-1}$\\
-       Midazolam & Dexmedetomidina & $4.9 \times 10^{-2}$ & $4.8 \times 10^{-2}$\\
+       Midazolam & Dexmedetomidina & $\mathbf{4.9 \times 10^{-2}}$ & $\mathbf{4.8 \times 10^{-2}}$\\
        
     \end{tabular}
-    \caption{p--value ottenuti tramite i test di Bonferroni e di Dunn--Šidák: confronto a coppie dei quattro farmaci per valutarne il profilo di sicurezza come percepito dagli infermieri. Generata dal codice.}
+    \caption{p--value ottenuti tramite i test di Bonferroni e di Dunn--Šidák: confronto a coppie dei quattro farmaci per valutarne il profilo di sicurezza come percepito dagli infermieri.} %Generata dal codice \ref{code:safety}.}
     \label{tab:sicurezzatest}
 \end{table}
 \egroup
@@ -165,7 +170,7 @@ di mediana e IQR descritti nella tabella \ref{tab:sicurezzased}.
        Midazolam & 10 (10--10) \\
        Dexmedetomidina & 10 (6--10) 
     \end{tabular}
-    \caption{Valori di mediana e quartili associati alla sicurezza percepita durante la sedazione con i quattro agenti farmacologici. Generata dal codice \ref{code:safety}.}
+    \caption{Valori di mediana e quartili associati alla sicurezza percepita durante la sedazione con i quattro agenti farmacologici.} %Generata dal codice \ref{code:safety}.}
     \label{tab:sicurezzased}
 \end{table}
 \egroup
@@ -177,7 +182,7 @@ di mediana e IQR descritti nella tabella \ref{tab:sicurezzased}.
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{Figure/effetti-avversi.pdf}
-    \caption{Gli effetti avversi più frequentemente riscontrati dagli infermieri con i quattro agenti farmacologici testati. Generata dal codice \ref{code:adverse-effects-incidence}.}
+    \caption{Gli effetti avversi più frequentemente riscontrati dagli infermieri con i quattro agenti farmacologici testati.} %Generata dal codice \ref{code:adverse-effects-incidence}.}
     \label{fig:sicurezza}
 \end{figure}
 
@@ -218,7 +223,7 @@ Le reazioni avverse più comunemente osservate dal personale intervistato per i 
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.9\textwidth]{Figure/rescue.pdf}
-    \caption{Risposte degli infermieri alla domanda "Per quali di queste sedazioni è spesso necessario somministrare al risveglio un farmaco \emph{rescue} o sintomatico?".\\ Generata dal codice \ref{code:rescue}.}
+    \caption{Risposte degli infermieri alla domanda "Per quali di queste sedazioni è spesso necessario somministrare al risveglio un farmaco \emph{rescue} o sintomatico?".} %Generata dal codice \ref{code:rescue}.}
     \label{fig:rescue}
 \end{figure}
 
@@ -232,7 +237,7 @@ Al fine di comprendere al meglio i motivi alla base delle risposte riportate dag
 \begin{figure}[!h]
     \centering
     \includegraphics[width=1\textwidth]{Figure/soddisfazione-globale.eps}
-    \caption{Fattori che hanno influenzato il grado di soddisfazione complessivo degli infermieri. Generata dal codice \ref{code:satisfaction}.}
+    \caption{Fattori che hanno influenzato il grado di soddisfazione complessivo degli infermieri.} %Generata dal codice \ref{code:satisfaction}.}
     \label{fig:soddglobale}
 \end{figure}
 
@@ -244,7 +249,7 @@ Oltre a ciò, è stato domandato quanto l'incidenza dei possibili effetti collat
 \begin{figure}[!ht]
     \centering
     \includegraphics[width=1\textwidth]{Figure/influenza-effetti.pdf}
-    \caption{Risposte alla domanda "Quanto i seguenti effetti collaterali riducono la tua soddisfazione in merito alla sedazione procedurale?".\\ Generata dal codice \ref{code:adverse-effects-perception}.}
+    \caption{Risposte alla domanda "Quanto i seguenti effetti collaterali riducono la tua soddisfazione in merito alla sedazione procedurale?".}%Generata dal codice \ref{code:adverse-effects-perception}.}
     \label{fig:influenzaeffetti}
 \end{figure}
 
@@ -297,7 +302,7 @@ Le tecniche di distrazione attuate prima e durante le sedazioni procedurali sono
 \begin{figure}[!h]
     \centering
     \includegraphics[width=0.7\textwidth]{Figure/distrazione.pdf}
-    \caption{Risposte alla domanda "Quanto ritieni utile l’utilizzo di tecniche di distrazione nei bambini per l’esecuzione di procedure non dolorose/minimamente dolorose?". Generata dal codice \ref{code:misdirection-techniques}.}
+    \caption{Risposte alla domanda "Quanto ritieni utile l’utilizzo di tecniche di distrazione nei bambini per l’esecuzione di procedure non dolorose/minimamente dolorose?".}%Generata dal codice \ref{code:misdirection-techniques}.}
     \label{fig:distrazione}
 \end{figure}
 
