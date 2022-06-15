@@ -2,7 +2,7 @@ function ncolors = palette(n,handle)
 %% PALETTE defines a unified color-scheme for all plots
  % It defines some colors in the HEX space, as provided
  % by: < https://usbrandcolors.com/microsoft-colors/ >,
- % < https://xkcd.com/color/rgb/ > and… personal taste.
+ %  < https://xkcd.com/color/rgb/ > and personal taste.
     assert(n <= 12,'Only 12 colors are defined.')
     % < https://github.com/bellomia/MATVERSE
     matverse.enter 
