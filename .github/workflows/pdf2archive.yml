@@ -28,14 +28,12 @@ jobs:
           repository: matteosecli/pdf2archive
           path: pdf2archive/
       - name: Setup PDF2ARCHIVE root and input
-        run: | # also give run-permissions to the script
+        run: | 
           mv latex-build/draft.pdf pdf2archive/latex.pdf
           cd pdf2archive/
-          chmod a=rwx pdf2archive
-          ls -l pdf2archive
       - name: Convert to PDF/A-1b ISO standard
         run: > # pdf2archive multiline script
-          ./pdf2archive
+          bash pdf2archive
           --title="Valutazione infermieristica della qualita' della sedazione procedurale pediatrica"
           --subject="Nursing assessment of the quality of pediatric procedural sedation"
           --keywords="sedazione procedurale, pediatria, risveglio, qualita' del risveglio"
@@ -48,7 +46,7 @@ jobs:
           website: oracle.com
           release: 17
       - name: Validate the standard via veraPDF
-        run: ./pdf2archive --validate-only --debug
+        run: bash pdf2archive --validate-only
       - name: Prepare artifact to upload
         run : | # pack output directory
           ls -lha pdf2archive
