@@ -32,6 +32,7 @@ jobs:
           mv latex-build/draft.pdf pdf2archive/latex.pdf
           cd pdf2archive/
           chmod +x pdf2archive
+          ls -lha
       - name: Convert to PDF/A-1b ISO standard
         run: >- # pdf2archive multiline script
           ./pdf2archive
