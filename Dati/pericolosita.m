@@ -3,7 +3,7 @@
    load TIDY
     
  % Setup Colorscheme
-   colors = lines(10); % provvisorio in attesa upgrade palette()
+   colors = palette(10);
    
  % Setup Labels
    effect = {'sonnolenza','irritabilità','iperattività',...

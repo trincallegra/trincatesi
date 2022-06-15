@@ -3,7 +3,7 @@
    load TIDY
    
  % Setup Colorscheme
-   colors = lines(9); % provvisorio in attesa upgrade palette()
+   colors = palette(9); 
    
  % Setup Categories
    factors = {'tipo di farmaco e via di somministrazione',...
