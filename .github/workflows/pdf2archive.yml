@@ -47,9 +47,10 @@ jobs:
           website: oracle.com
           release: 17
       - name: Validate the standard via veraPDF
-        run: sh pdf2archive --validate-only
+        run: sh pdf2archive --validate-only --debug
       - name: Prepare artifact to upload
         run : | # pack output directory
+          ls -lha
           mv esse3.pdf ../output/esse3.pdf
           cd ..
       - name: Upload artifact to actions tab
