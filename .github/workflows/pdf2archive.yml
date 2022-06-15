@@ -50,7 +50,7 @@ jobs:
           unzip verapdf-installer.zip
           rm verapdf-installer.zip
           cd verapdf-*
-          ./verapdf-install ../pdf2archive/verapdf 
+          ./verapdf-install
           cd ../pdf2archive
           bash pdf2archive --validate-only
       - name: Prepare artifact to upload
