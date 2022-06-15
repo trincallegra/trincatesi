@@ -20,6 +20,8 @@ jobs:
           path: latex-build/
       - name: Retrieve GHOSTSCRIPT
         run : | # External dependency for pdf2archive
+          pwd
+          ls -la
           sudo apt-get update
           sudo apt-get install ghostscript -y
       - name: Retrieve PDF2ARCHIVE
@@ -29,6 +31,8 @@ jobs:
           path: pdf2archive/
       - name: Setup PDF2ARCHIVE root and input
         run: | 
+          pwd
+          ls -la
           mv latex-build/draft.pdf pdf2archive/latex.pdf
           cd pdf2archive/
           mv pdf2archive pdf2archive.sh
@@ -50,7 +54,8 @@ jobs:
         run: bash pdf2archive/pdf2archive.sh --validate-only
       - name: Prepare artifact to upload
         run : | # pack output directory
-          ls -lha pdf2archive
+          pwd
+          ls -la
           mkdir output/
           mv pdf2archive/esse3.pdf output/esse3.pdf
           cd ..
