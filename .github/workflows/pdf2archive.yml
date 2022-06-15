@@ -33,7 +33,13 @@ jobs:
           cd pdf2archive/
       - name: Convert to PDF/A-1b ISO standard
         run: > # pdf2archive multiline script
-          bash pdf2archive latex.pdf
+          bash pdf2archive
+          --title="Valutazione infermieristica della qualita' della sedazione procedurale pediatrica"
+          --subject="Nursing assessment of the quality of pediatric procedural sedation"
+          --keywords="sedazione procedurale, pediatria, risveglio, qualita' del risveglio"
+          --author="Anais Trinca"
+          latex.pdf
+          esse3.pdf
       - name: Setup JAVA runtime for validation
         uses: oracle-actions/setup-java@v1
         with:
