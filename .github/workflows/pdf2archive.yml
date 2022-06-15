@@ -43,7 +43,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'microsoft'
-          java-version: '9'
+          java-version: '11'
       - name: Validate the standard via veraPDF
         run: |
           cd pdf2archive
