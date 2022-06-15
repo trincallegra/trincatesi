@@ -47,7 +47,7 @@ jobs:
       - name: Validate the standard via veraPDF
         run: |
           cd pdf2archive
-          bash pdf2archive --validate-only esse3.pdf
+          bash pdf2archive --validate-only --debug esse3.pdf
       - name: Prepare artifact to upload
         run : | # pack output directory
           mkdir output/
