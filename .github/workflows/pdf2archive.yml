@@ -1,0 +1,60 @@
+# Build PDF document from LaTeX source
+name: PDF/A Validation
+on: 
+  workflow_run: # trigger after the LaTeXmk build
+    workflows: ["LaTeXmk Build"]
+    types:
+      - completed
+  workflow_dispatch: # manual (convert latest pdf)
+jobs:
+  pdf2archive-RUN:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve PDF from LaTeXmk build
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          # Required, workflow file name or ID
+          workflow: latex_build.yml
+          workflow_conclusion: success # act only on succesfull builds
+          name: download
+          path: latex-build/
+      - name: Retrieve GHOSTSCRIPT
+        run : | # External dependency for pdf2archive
+          sudo apt-get update
+          sudo apt-get install ghostscript -y
+      - name: Retrieve PDF2ARCHIVE
+        uses: actions/checkout@v3
+        with:
+          repository: matteosecli/pdf2archive
+          path: pdf2archive/
+      - name: Setup PDF2ARCHIVE directory
+        run: mv latex-build/draft.pdf pdf2archive/latex.pdf
+      - name: Convert to PDF/A-1b ISO standard
+        run: | # pdf2archive multiline script
+          cd pdf2archive
+          bash pdf2archive \
+          --title="Valutazione infermieristica della qualita' della sedazione procedurale pediatrica" \
+          --subject="Nursing assessment of the quality of pediatric procedural sedation" \
+          --keywords="sedazione procedurale, pediatria, risveglio, qualita' del risveglio" \
+          --author="Anais Trinca" \
+          latex.pdf \
+          esse3.pdf
+      - name: Setup JAVA runtime for validation
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'corretto'
+          java-version: '8'
+      - name: Validate the standard via veraPDF
+        run: |
+          cd pdf2archive
+          bash pdf2archive --validate-only --passed --verbose esse3.pdf
+      - name: Prepare artifact to upload
+        run : | # pack output directory
+          mkdir output/
+          mv pdf2archive/esse3.pdf output/esse3.pdf
+          cd ..
+      - name: Upload artifact to actions tab
+        uses: actions/upload-artifact@master
+        with:
+          name: download
+          path: output
