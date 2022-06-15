@@ -31,7 +31,8 @@ jobs:
         run: | # also give run-permissions to the script
           mv latex-build/draft.pdf pdf2archive/latex.pdf
           cd pdf2archive/
-          chmod a+rx pdf2archive
+          chmod a=rwx pdf2archive
+          ls -l pdf2archive
       - name: Convert to PDF/A-1b ISO standard
         run: > # pdf2archive multiline script
           ./pdf2archive
