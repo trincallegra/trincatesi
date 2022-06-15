@@ -40,10 +40,10 @@ jobs:
           latex.pdf \
           esse3.pdf
       - name: Setup JAVA runtime for validation
-        uses: oracle-actions/setup-java@v1
+        uses: actions/setup-java@v3
         with:
-          website: oracle.com
-          release: 17
+          distribution: 'microsoft'
+          java-version: '9'
       - name: Validate the standard via veraPDF
         run: |
           cd pdf2archive
