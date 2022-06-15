@@ -8,7 +8,7 @@ on:
   workflow_dispatch: # manual (convert latest pdf)
 jobs:
   pdf2archive-RUN:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Retrieve PDF from LaTeXmk build
         uses: dawidd6/action-download-artifact@v2
