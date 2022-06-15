@@ -1,5 +1,5 @@
 # Run MATLAB scripts and check output against commit
-name: Data-Analysis
+name: Data Analysis
 on: # setup triggers
   push:
     paths: 

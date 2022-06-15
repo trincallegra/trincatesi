@@ -20,8 +20,8 @@ jobs:
             --bibliography Bibliografia/Testi.bib 
             --bibliography Bibliografia/Web.bib 
             --csl ieee.csl --citeproc --toc
-      - name: Prepare artifact and clean-up
+      - name: Prepare artifact and upload
         uses: actions/upload-artifact@master
         with:
-          name: download.docx
+          name: download
           path: output

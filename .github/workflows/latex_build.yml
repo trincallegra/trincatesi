@@ -13,8 +13,8 @@ jobs:
         with:
           root_file: main.tex
       - run : mv main.pdf output/draft.pdf
-      - name: Prepare artifact and clean-up
+      - name: Prepare artifact and upload
         uses: actions/upload-artifact@master
         with:
-          name: download.pdf
+          name: download
           path: output
