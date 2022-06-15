@@ -32,7 +32,6 @@ jobs:
           mv latex-build/draft.pdf pdf2archive/latex.pdf
           cd pdf2archive/
           chmod +x pdf2archive
-          ls -lha
       - name: Convert to PDF/A-1b ISO standard
         run: > # pdf2archive multiline script
           sh pdf2archive
@@ -48,7 +47,7 @@ jobs:
           website: oracle.com
           release: 17
       - name: Validate the standard via veraPDF
-        run: ./pdf2archive --validate-only
+        run: sh pdf2archive --validate-only
       - name: Prepare artifact to upload
         run : | # pack output directory
           mv esse3.pdf ../output/esse3.pdf
