@@ -40,13 +40,18 @@ jobs:
           latex.pdf \
           esse3.pdf
       - name: Setup JAVA runtime for validation
-        uses: actions/setup-java@v3
+        uses: oracle-actions/setup-java@v1
         with:
-          distribution: 'microsoft'
-          java-version: '11'
+          website: oracle.com
+          release: 17
       - name: Validate the standard via veraPDF
         run: |
-          cd pdf2archive
+          wget http://downloads.verapdf.org/rel/verapdf-installer.zip
+          unzip verapdf-installer.zip
+          rm verapdf-installer.zip
+          cd verapdf-*
+          ./verapdf-install ../pdf2archive/verapdf 
+          cd ../pdf2archive
           bash pdf2archive --validate-only
       - name: Prepare artifact to upload
         run : | # pack output directory
