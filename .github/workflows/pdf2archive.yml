@@ -31,9 +31,10 @@ jobs:
         run: | 
           mv latex-build/draft.pdf pdf2archive/latex.pdf
           cd pdf2archive/
+          mv pdf2archive pdf2archive.sh
       - name: Convert to PDF/A-1b ISO standard
         run: > # pdf2archive multiline script
-          bash pdf2archive
+          bash pdf2archive.sh
           --title="Valutazione infermieristica della qualita' della sedazione procedurale pediatrica"
           --subject="Nursing assessment of the quality of pediatric procedural sedation"
           --keywords="sedazione procedurale, pediatria, risveglio, qualita' del risveglio"
@@ -46,7 +47,7 @@ jobs:
           website: oracle.com
           release: 17
       - name: Validate the standard via veraPDF
-        run: bash pdf2archive --validate-only
+        run: bash pdf2archive.sh --validate-only
       - name: Prepare artifact to upload
         run : | # pack output directory
           ls -lha pdf2archive
