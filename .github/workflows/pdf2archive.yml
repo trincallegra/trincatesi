@@ -1,10 +1,11 @@
 # Build PDF document from LaTeX source
 name: PDF/A Validation
-on: # trigger after the LaTeXmk build
-  workflow_run:
+on: 
+  workflow_run: # trigger after the LaTeXmk build
     workflows: ["LaTeXmk Build"]
     types:
       - completed
+  workflow_dispatch: # manual (convert latest pdf)
 jobs:
   pdf2archive-RUN:
     runs-on: ubuntu-latest
@@ -25,12 +26,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: matteosecli/pdf2archive
+          path: pdf2archive/
       - name: Setup PDF2ARCHIVE root and input
-        run: | # pdf2archive multiline script
-          cd pdf2archive
-          pwd
+        run: | # also give run-permissions to the script
+          mv latex-build/draft.pdf pdf2archive/latex.pdf
+          cd pdf2archive/
           chmod +x pdf2archive
-          mv ../latex-build/draft.pdf latex.pdf
       - name: Convert to PDF/A-1b ISO standard
         run: >- # pdf2archive multiline script
           ./pdf2archive
@@ -48,9 +49,9 @@ jobs:
       - name: Validate the standard via veraPDF
         run: ./pdf2archive --validate-only
       - name: Prepare artifact to upload
-        run : | # move up to root and pack output
+        run : | # pack output directory
+          mv esse3.pdf ../output/esse3.pdf
           cd ..
-          mv pdf2archive/esse3.pdf output/esse3.pdf
       - name: Upload artifact to actions tab
         uses: actions/upload-artifact@master
         with:
