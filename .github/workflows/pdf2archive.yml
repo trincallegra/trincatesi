@@ -1,0 +1,58 @@
+# Build PDF document from LaTeX source
+name: PDF/A Validation
+on: # trigger after the LaTeXmk build
+  workflow_run:
+    workflows: ["LaTeXmk Build"]
+    types:
+      - completed
+jobs:
+  pdf2archive-RUN:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Retrieve PDF from LaTeXmk build
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          # Required, workflow file name or ID
+          workflow: latex_build.yml
+          workflow_conclusion: success # act only on succesfull builds
+          name: download
+          path: latex-build/
+      - name: Retrieve GHOSTSCRIPT
+        run : | # External dependency for pdf2archive
+          sudo apt-get update
+          sudo apt-get install ghostscript -y
+      - name: Retrieve PDF2ARCHIVE
+        uses: actions/checkout@v3
+        with:
+          repository: matteosecli/pdf2archive
+      - name: Setup PDF2ARCHIVE root and input
+        run: | # pdf2archive multiline script
+          cd pdf2archive
+          pwd
+          chmod +x pdf2archive
+          mv ../latex-build/draft.pdf latex.pdf
+      - name: Convert to PDF/A-1b ISO standard
+        run: >- # pdf2archive multiline script
+          ./pdf2archive
+          --title="Valutazione infermieristica della qualità della sedazione procedurale pediatrica"
+          --subject="Nursing assessment of the quality of pediatric procedural sedation"
+          --keywords="sedazione procedurale, pediatria, risveglio, qualità del risveglio"
+          --author="Anaïs Trinca"
+          latex.pdf
+          esse3.pdf
+      - name: Setup JAVA runtime for validation
+        uses: oracle-actions/setup-java@v1
+        with:
+          website: oracle.com
+          release: 17
+      - name: Validate the standard via veraPDF
+        run: ./pdf2archive --validate-only
+      - name: Prepare artifact to upload
+        run : | # move up to root and pack output
+          cd ..
+          mv pdf2archive/esse3.pdf output/esse3.pdf
+      - name: Upload artifact to actions tab
+        uses: actions/upload-artifact@master
+        with:
+          name: download
+          path: output
