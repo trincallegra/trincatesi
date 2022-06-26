@@ -152,10 +152,10 @@
 	pdfproducer={PdfLaTeX},     % app producing the PDF build
 	pdfnewwindow=true,          % links in new PDF window
 	colorlinks=true,            % false: boxed links; true: colored links
-	linkcolor=trieste,          % color of internal links
-	citecolor=trieste,          % color of links to bibliography
-	filecolor=trieste,          % color of file links
-	 urlcolor=trieste           % color of external links
+	linkcolor=black,            % color of internal links
+	citecolor=blumicrosoft,     % color of links to bibliography
+    filecolor=blumicrosoft,     % color of file links
+	 urlcolor=blumicrosoft      % color of external links
 }
 %% •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
 
@@ -295,7 +295,7 @@
 \input{titlepage}
 \frontmatter
 \restoregeometry
-\input{Capitoli/Dedica}
+%\input{Capitoli/Dedica}
 
 %>INDICE[AUTOMATIZZATO]
 \newgeometry{top=3cm,bottom=3cm,left=2.5cm,right=2.5cm}
@@ -321,7 +321,7 @@
 \end{appendices}
 
 %>RINGRAZIAMENTI
-\input{Capitoli/Ringraziamenti}
+%\input{Capitoli/Ringraziamenti}
 
 %>BIBLIOGRAFIA
 \printbibliography[heading=bibintoc,title={Bibliografia}]
