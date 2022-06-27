@@ -2,3 +2,8 @@
 *.asv 
 # protect svg pics
 *.svg
+# latex buildfiles
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
