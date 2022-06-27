@@ -6,8 +6,8 @@
 
 
 %% ••• GLOBAL BASIC LAYOUT •••••••••••••••••••••••••••••••••••••••••••••••••••
-\documentclass[a4,dottedtoc]{scrbook}
-\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry} % Custom margins
+\documentclass[a4,dottedtoc,twoside]{scrbook}
+\usepackage[top=3cm,bottom=3cm,left=3.5cm,right=2.5cm]{geometry} % Custom margins
 \usepackage{changepage} % Commands to change the page layout in the middle of 
                         % a document, and to robustly check for typesetting 
                         % on odd or even pages
@@ -291,14 +291,14 @@
 \begin{document}
 
 %>FRONTESPIZIO
-\newgeometry{top=0cm,bottom=1cm,left=3cm,right=3cm}
+\newgeometry{top=0cm,bottom=1cm,left=3.5cm,right=2.5cm}
 \input{titlepage}
 \frontmatter
 \restoregeometry
-%\input{Capitoli/Dedica}
+\input{Capitoli/Dedica}
 
 %>INDICE[AUTOMATIZZATO]
-\newgeometry{top=3cm,bottom=3cm,left=2.5cm,right=2.5cm}
+\newgeometry{top=3cm,bottom=3cm,left=3cm,right=2cm}
 \tableofcontents
 \restoregeometry
 
@@ -321,7 +321,7 @@
 \end{appendices}
 
 %>RINGRAZIAMENTI
-%\input{Capitoli/Ringraziamenti}
+\input{Capitoli/Ringraziamenti}
 
 %>BIBLIOGRAFIA
 \printbibliography[heading=bibintoc,title={Bibliografia}]
